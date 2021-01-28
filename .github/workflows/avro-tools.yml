@@ -26,5 +26,6 @@ jobs:
       - name: for each
         run: |
           for filename in ./schematas/*.avsc; do
-            echo "ARCHIVO DETECTADO $filename"
+            namespace=`cat $filename | jq '.namespace'`
+            echo "NS=$namespace"
           done
