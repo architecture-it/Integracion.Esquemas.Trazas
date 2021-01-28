@@ -28,8 +28,9 @@ jobs:
           for filename in ./schematas/*.avsc; do
             
             namespace=`cat $filename | jq '.namespace'`
-            target_ns="Integracion.Esquemas.Trazas"
+            target_ns='Integracion.Esquemas.Trazas'
             echo $namespace
+            echo $target_ns
             if [ "$namespace" != "$target_ns" ]
               then
                 name=`cat $filename | jq '.name'`
