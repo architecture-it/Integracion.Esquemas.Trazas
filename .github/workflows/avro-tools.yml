@@ -20,6 +20,6 @@ jobs:
       - name: Get Avro-Tools
         run: wget --quiet $AVRO_MIRROR/avro-$AVRO_VERSION/java/avro-tools-$AVRO_VERSION.jar
       - name: Generate Schematas
-        run: java -jar avro-tools-$AVRO_VERSION.jar idl2schematas idl/EventosDeTraza.avdl ./schematas
+        run: java -jar avro-tools-$AVRO_VERSION.jar idl2schemata idl/EventosDeTraza.avdl ./schematas
       - name: inspect out dir
         run: ls ./schematas
