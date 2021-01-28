@@ -18,6 +18,6 @@ jobs:
           java-package: jre # (jre, jdk, or jdk+fx) - defaults to jdk
           architecture: x64 # (x64 or x86) - defaults to x64
       - name: Get Avro-Tools
-        run: wget $AVRO_MIRROR/avro-$AVRO_VERSION/java/avro-tools-$AVRO_VERSION.jar
+        run: wget --quiet $AVRO_MIRROR/avro-$AVRO_VERSION/java/avro-tools-$AVRO_VERSION.jar
       - name: Generate Avro Protocol from Idl
         run: java -jar avro-tools-$AVRO_VERSION.jar idl idl/EventosDeTraza.avdl EventosDeTraza.avpr
