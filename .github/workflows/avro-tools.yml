@@ -27,7 +27,7 @@ jobs:
         run: |
           for filename in ./schematas/*.avsc; do
             namespace=`cat $filename | jq '.namespace'`
-            if [ "$namespace" == "Integracion.Esquemas.Trazas" ]
+            if [ "$namespace" = "Integracion.Esquemas.Trazas" ]
               then
                 name=`cat $filename | jq '.name'`
                 echo "Filtro=$name"
