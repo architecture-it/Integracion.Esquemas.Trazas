@@ -1,0 +1,20 @@
+name: avro tools
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11' # The JDK version to make available on the path.
+          java-package: jre # (jre, jdk, or jdk+fx) - defaults to jdk
+          architecture: x64 # (x64 or x86) - defaults to x64
+      - name: Get Avro-Tools
+        run: wget https://mvnrepository.com/artifact/org.apache.avro/avro-tools/1.10.1/avro-tools-1.10.1.jar
+      - name: Generate Avro Protocol from Idl
+        run: java -jar avro-tools-1.10.1.jar idl idl/EventosDeTraza.avdl EventosDeTraza.avpr
