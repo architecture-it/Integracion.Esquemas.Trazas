@@ -37,6 +37,9 @@ jobs:
         run: java -jar avro-tools-$AVRO_VERSION.jar idl idl/EventosDeTraza.avdl EventosDeTraza.avpr
       - name: AvroGen
         run: avrogen -p EventosDeTraza.avpr lang/csharp/trazas
+      - name: Inspect
+        run: ls -l
+        working-directory: ${{env.working-directory}}
       - name: Restore dependencies
         run: dotnet restore
         working-directory: ${{env.working-directory}}
