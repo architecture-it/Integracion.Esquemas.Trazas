@@ -6,6 +6,8 @@
     <RootNamespace>Integracion.Esquemas</RootNamespace>
     <Authors>Andreani</Authors>
     <Company>Andreani</Company>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/architecture-it/Integracion.Esquemas.Avro</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
