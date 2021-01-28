@@ -23,3 +23,8 @@ jobs:
         run: java -jar avro-tools-$AVRO_VERSION.jar idl2schemata idl/EventosDeTraza.avdl ./schematas
       - name: inspect out dir
         run: ls ./schematas
+      - name: for each
+        run: |
+          for filename in ./schematas/*.avsc; do
+            echo "ARCHIVO DETECTADO $filename"
+          done
