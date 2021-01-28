@@ -5,11 +5,16 @@ on:
     branches:
       - main
 env:
+  # Stop wasting time caching packages
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  # Disable sending usage data to Microsoft
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
   AVRO_VERSION: 1.10.1
   AVRO_MIRROR: https://apache.zero.com.ar/avro
   REGISTRY_URL: http://nlt-service-registry.apps.ocpnltools.clusters.nalabs.ml
 jobs:
-  generate:
+  gen-nuget:
+    name: "Sync Schemas"
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -18,13 +23,24 @@ jobs:
           java-version: '11' # The JDK version to make available on the path.
           java-package: jre # (jre, jdk, or jdk+fx) - defaults to jdk
           architecture: x64 # (x64 or x86) - defaults to x64
-      - name: Get Avro-Tools
+      - name: Get Avro Tools
         run: wget --quiet $AVRO_MIRROR/avro-$AVRO_VERSION/java/avro-tools-$AVRO_VERSION.jar
+      - name: Get Avro Gen
+        run: dotnet tool install Apache.Avro.Tools --version $AVRO_VERSION
+      - name: Generate Protocol
+        run: java -jar avro-tools-$AVRO_VERSION.jar idl idl/EventosDeTraza.avdl EventosDeTraza.avpr
+      - name: inspect
+        run: ls -l
+
+  sync-schemas:
+    name: "Sync Schemas"
+    runs-on: ubuntu-18.04
+    needs: ["gen-nuget"]
+    steps:
+
       - name: Generate Schematas
         run: java -jar avro-tools-$AVRO_VERSION.jar idl2schemata idl/EventosDeTraza.avdl ./schematas
-      - name: inspect out dir
-        run: ls ./schematas
-      - name: for each
+      - name: Sync with Registry
         run: |
           for filename in ./schematas/*.avsc; do
             
