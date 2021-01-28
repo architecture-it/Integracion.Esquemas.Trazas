@@ -17,7 +17,7 @@ jobs:
     name: "Generate Libs"
     runs-on: ubuntu-18.04
     env:
-      working-directory: 'lang/csharp/trazas/integracion/esquemas'
+      working-directory: 'lang/csharp/Trazas/Integracion/Esquemas'
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET Core
@@ -36,7 +36,7 @@ jobs:
       - name: Generate Protocol
         run: java -jar avro-tools-$AVRO_VERSION.jar idl idl/EventosDeTraza.avdl EventosDeTraza.avpr
       - name: AvroGen
-        run: avrogen -p EventosDeTraza.avpr lang/csharp/trazas
+        run: avrogen -p EventosDeTraza.avpr lang/csharp/Trazas
       - name: Inspect
         run: ls -l
         working-directory: ${{env.working-directory}}
