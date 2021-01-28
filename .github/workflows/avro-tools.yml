@@ -26,7 +26,7 @@ jobs:
       - name: Get Avro Tools
         run: wget --quiet $AVRO_MIRROR/avro-$AVRO_VERSION/java/avro-tools-$AVRO_VERSION.jar
       - name: Get Avro Gen
-        run: dotnet tool install Apache.Avro.Tools --version $AVRO_VERSION
+        run: dotnet tool install Apache.Avro.Tools --version $AVRO_VERSION --global
       - name: Generate Protocol
         run: java -jar avro-tools-$AVRO_VERSION.jar idl idl/EventosDeTraza.avdl EventosDeTraza.avpr
       - name: inspect
