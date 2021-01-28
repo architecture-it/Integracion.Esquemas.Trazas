@@ -12,6 +12,7 @@ env:
   AVRO_VERSION: 1.10.1
   AVRO_MIRROR: https://apache.zero.com.ar/avro
   REGISTRY_URL: http://nlt-service-registry.apps.ocpnltools.clusters.nalabs.ml
+  GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }} 
 jobs:
   gen-nuget:
     name: "Generate Libs"
@@ -47,15 +48,15 @@ jobs:
         run: dotnet build --configuration Release --no-restore
         working-directory: ${{env.working-directory}}
       - name: Pack
-        run: dotnet pack --no-build -c Release -o ../../../../../artifacts -p:PackageVersion=$GITHUB_RUN_ID
+        run: dotnet pack --no-build -c Release -o ../../../../../artifacts -p:PackageVersion=0.$GITHUB_RUN_ID
         working-directory: ${{env.working-directory}}
-      - name: Push
-        uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
-        with:
-          nupkg-path:  './artifacts/*.nupkg'
-          repo-owner:  'architecture-it'
-          gh-user:  ${{ secrets.GH_USER }}
-          token:  ${{ secrets.PERSONAL_TOKEN }}
+      - name: Add NuGet sources
+        run: |
+          dotnet nuget add source https://nuget.pkg.github.com/${{ env.GITHUB_REPOSITORY_OWNER }}/index.json --name github
+       
+      - name: Nuget Push on Github
+        run: dotnet nuget push "./artifacts/*.nupkg" --source github --api-key ${{ secrets.PERSONAL_TOKEN }} --skip-duplicate
+
   sync-schemas:
     name: "Sync Schemas"
     runs-on: ubuntu-18.04
