@@ -30,7 +30,7 @@ jobs:
             namespace=`cat $filename | jq '.namespace'`
             target_ns="Integracion.Esquemas.Trazas"
 
-            if [ "$namespace" == "$target_ns" ]
+            if [ "$namespace" != "$target_ns" ]
               then
                 name=`cat $filename | jq '.name'`
                 echo "Filtro=$name"
