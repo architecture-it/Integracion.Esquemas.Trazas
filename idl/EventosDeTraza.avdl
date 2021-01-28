@@ -1,0 +1,53 @@
+@namespace("Integracion.Esquemas.Trazas")
+protocol EsquemasProtocol {
+
+  import idl "DatosDeReferencia.avdl";
+
+  record Traza{
+
+    string codigoDeEnvio;
+    union { null, string } nombre=null;
+    timestamp_ms cuando;
+    string codigoDeContratoInterno;
+    union { null, string } estadoDelEnvio=null;
+    union { null, string } cicloDelEnvio=null;
+    union { null, string } operador=null;
+    union { null, string } estadoDeLaRendicion=null;
+    union { null, string } comentario=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
+  }
+
+  record Admision{
+    // Mandatory Fields
+    string timestamp;
+    string remitente;
+    string numeroDeOrden;
+    // End Mandatory Fields
+    Traza traza;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
+
+  @aliases(["AltaManual", "AltaAutomatica", "AltaRemota", "AltaConAnomalias", "AltaDeExcedente"])
+  record Alta{
+    // Mandatory Fields
+    string timestamp;
+    string remitente;
+    string numeroDeOrden;
+    // End Mandatory Fields
+    Traza traza;
+    Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
+    Integracion.Esquemas.Referencias.Contrato contrato;
+  }
+
+  record EnvioEntregado{
+    
+    // Mandatory Fields
+    string timestamp;
+    string remitente;
+    string numeroDeOrden;
+    // End Mandatory Fields
+
+    Traza traza;
+    Integracion.Esquemas.Referencias.TipoDeEntrega tipoDeEntrega;
+  }
+}

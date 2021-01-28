@@ -1,0 +1,123 @@
+@namespace("Integracion.Esquemas.Referencias")
+protocol DatoDeReferenciaProtocol {
+
+  record Contrato{
+    string codigoDeContratoInterno;
+    union { null, string } descripcion=null;
+    boolean estaActivo;
+    union { null, string } tipoDeServicio=null;
+    union { null, string } codigoDeDireccion=null;
+    string codigoDeClienteInterno;
+    union { null, string } vigenciaDesde=null;
+    union { null, string } vigenciaHasta=null;
+
+  }
+  record DatosPersonales{
+    union { null, string } numeroDeDocumento=null;
+    union { null, string } nombreCompleto=null;
+    union { null, string } idInternoDelCliente=null;
+    union { null, string } eMail=null;
+    union { null, array<Telefono> }  telefonos=null;
+    union { null, string } agrupador=null;
+    TipoDeDocumento tipoDeDocumento;
+  }
+
+  record DatosSucursal{
+    string codigo;
+    union { null, string } nombre=null;
+    string id;
+  }
+
+  record DetalleDeEnvio{
+    union { null, string }fechaDeRecibo=null;
+    boolean informaTarifa;
+    union { null, string } lote=null;
+    string numeroDeEnvio;
+    union { null, string } numeroDeRecibo=null;
+    union { null,  string } numeroInformeDeRendicion=null;
+    union { null, float } peso=null;
+    union { null, float } pesoAforado=null;
+    union { null, float } valorDeclarado=null;
+    union { null, float } valorACobrar=null;
+    union { null, float } volumen=null;
+    union { null, LugarDeRetiroEntrega } origen=null;
+    union { null, LugarDeRetiroEntrega } sucursalOrigen=null;
+    LugarDeRetiroEntrega destino;
+    union { null, LugarDeRetiroEntrega } sucursalDestino=null;
+    union { null, string } categoriaDeFacturacion=null;
+    union { null, string } centroDeCostosDelCliente=null;
+    string estado;
+    string codigoDeContratoInterno;
+    union { null, string } fechaInformeDeRendicion=null;
+    union { null, string } fechaAltaEnvio=null;
+    union { null, string } ordenDeCompraCliente=null;
+    union { null, double } tarifa=null;
+    array<DatosPersonales> componentes;
+    union { null, DatosPersonales } destinatario=null;
+    union { null, DatosPersonales } remitente=null;
+    union { null, int } cantidadDeBultos=null;
+    union { null, string } fechaProbableDeEntrega=null;
+    union { null, string } observaciones=null;
+    union { null, string } numeroDeRemito=null;
+    union { null, string } numeroDeSeguimientoDelCliente=null;
+    union { null, map<string> } datosAdicionales=null;
+    union { null, string } fechaPactadaDeEntrega=null;
+    union { null, double } altoEnCm=null;
+    union { null, double } anchoEnCm=null;
+    union { null, double } largoEnCm=null;
+  }
+
+  record Direccion{
+    union { null, string } abreviaturaProvincia=null;
+    union { null, string } calle=null;
+    union { null, string } codigoDeDireccion=null;
+    union { null, string } codigoCiudad=null;
+    union { null, string } codigoPostal=null;
+    union { null, string } nombreProvincia=null;
+    union { null, string } numero=null;
+    union { null, string } telefono=null;
+    /** segun ISO -3166-2 (https://es.wikipedia.org/wiki/ISO_3166-2:AR) */
+    union { null, string } codigoISOProvincia=null;
+    /** segun ISO 3166-1 alpha-2 (https://es.wikipedia.org/wiki/ISO_3166-1#Tabla_de_c.C3.B3digos_alfa-2_asignados_o_reservados) */
+    union { null, string } codigoISOPais=null;
+    union { null, string } localidad=null;
+    union { null, map<string> } componentesDeDireccion=null;
+    union { null, GeoReferencia } coordenadas = null;
+  }
+
+  record GeoReferencia{
+    union { null, double } latitud=null;
+    union { null, double } longitud=null;
+    union { null, double } altura=null;
+  }
+
+  record LugarDeRetiroEntrega{
+    union { null, DatosSucursal } datosSucursal=null;
+    union { null, Direccion } domicilio=null;
+  }
+
+  record Telefono{
+    TipoDeTelefono tipo;
+    string numero;
+  }
+
+  enum TipoDeDocumento{
+    undefined,
+    DNI,
+    CUIT,
+    CUIL
+  }
+
+  enum TipoDeEntrega {
+    undefined,
+    distribucion,
+    deliveryWindow
+  }
+
+  enum TipoDeTelefono{
+    trabajo, 
+    celular, 
+    casa, 
+    otro
+  }
+}
