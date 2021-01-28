@@ -34,6 +34,6 @@ jobs:
             if [ "$namespace" == "$target_ns" ]
               then
                 name=`cat $filename | jq '.name'`
-                echo "Filtro=$name"
+                curl -i -X POST http://nlt-service-registry.apps.ocpnltools.clusters.nalabs.ml/api/artifacts?ifExists=RETURN_OR_UPDATE -H "Content-Type: application/json; artifactType=AVRO" -H "X-Registry-ArtifactId: $name" --data-binary "@$filename"
               fi
           done
