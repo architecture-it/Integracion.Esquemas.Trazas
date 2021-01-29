@@ -38,8 +38,6 @@ jobs:
         run: java -jar avro-tools-$AVRO_VERSION.jar idl idl/EventosDeTraza.avdl EventosDeTraza.avpr
       - name: AvroGen
         run: avrogen -p EventosDeTraza.avpr lang/csharp/Trazas
-      - name: Inspect
-        run: ls -l
         working-directory: ${{env.working-directory}}
       - name: Restore dependencies
         run: dotnet restore
@@ -82,7 +80,7 @@ jobs:
               then
                 name=`cat $filename | jq -r '.name'`
                 exists=`curl -s -o /dev/null -w "%{http_code}" $REGISTRY_URL/api/artifacts/$name`
-                if[ "$exists" == "200"  ]
+                if [ "$exists" == "200"  ]
                   then
                     echo "Schema $name already exist, the schema will be updated."
                     curl -i -X POST $REGISTRY_URL/api/artifacts?ifExists=RETURN_OR_UPDATE -H "Content-Type: application/json; artifactType=AVRO" -H "X-Registry-ArtifactId: $name" --data-binary "@$filename"
