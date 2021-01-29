@@ -1,5 +1,6 @@
 # Integracion.Esquemas.Avro
 
+![avro tools](https://github.com/architecture-it/Integracion.Esquemas.Avro/workflows/avro%20tools/badge.svg)
 
 ## Generar archivo de protocol (avpr) desde archivo idl (avdl)
 
