@@ -35,7 +35,7 @@ jobs:
               then
                 name=`cat $filename | jq -r '.name'`
                 exists=`curl -s -o /dev/null -w "%{http_code}" $REGISTRY_URL/api/artifacts/$name`
-                // Validate only existing artifacts
+                # Validate only existing artifacts
                 if [ "$exists" == "200"  ]
                   then
                     echo "Schema $name already exist, the schema will be validated."

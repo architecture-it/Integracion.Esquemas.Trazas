@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+     - 'idl/**'
 env:
   # Stop wasting time caching packages
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
