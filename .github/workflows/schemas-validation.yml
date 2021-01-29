@@ -1,0 +1,51 @@
+name: Schemas Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+env:
+  AVRO_VERSION: 1.10.1
+  AVRO_MIRROR: https://apache.zero.com.ar/avro
+  REGISTRY_URL: http://nlt-service-registry.apps.ocpnltools.clusters.nalabs.ml
+jobs:
+
+  validate:
+    name: "Validate Schemas"
+    runs-on: ubuntu-18.04
+    needs: ["gen-nuget"]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11' # The JDK version to make available on the path.
+          java-package: jre # (jre, jdk, or jdk+fx) - defaults to jdk
+          architecture: x64 # (x64 or x86) - defaults to x64
+      - name: Get Avro Tools
+        run: wget --quiet $AVRO_MIRROR/avro-$AVRO_VERSION/java/avro-tools-$AVRO_VERSION.jar
+      - name: Generate Schematas
+        run: java -jar avro-tools-$AVRO_VERSION.jar idl2schemata idl/EventosDeTraza.avdl ./schematas
+      - name: Validate with Registry
+        run: |
+          for filename in ./schematas/*.avsc; do
+            
+            namespace=`cat $filename | jq -r '.namespace'`
+            target_ns='Integracion.Esquemas.Trazas'
+
+            if [ "$namespace" == "$target_ns" ]
+              then
+                name=`cat $filename | jq -r '.name'`
+                exists=`curl -s -o /dev/null -w "%{http_code}" $REGISTRY_URL/api/artifacts/$name`
+                // Validate only existing artifacts
+                if [ "$exists" == "200"  ]
+                  then
+                    echo "Schema $name already exist, the schema will be validated."
+                    status=`curl -s -o /dev/null -w "%{http_code}" -X PUT $REGISTRY_URL/api/artifacts/$name/test -H "Content-Type: application/json; artifactType=AVRO" --data-binary "@$filename"`
+                    if [ "$status" != "204" ]
+                      then
+                        echo "The Schema $name violates one of the rules configured for the artifact"
+                        exit 1
+                      fi
+                  fi
+              fi
+          done
