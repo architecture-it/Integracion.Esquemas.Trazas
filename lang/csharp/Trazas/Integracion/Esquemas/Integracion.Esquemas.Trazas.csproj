@@ -8,6 +8,7 @@
     <Company>Andreani</Company>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/architecture-it/Integracion.Esquemas.Avro</RepositoryUrl>
+    <Description>Catalogo de eventos</Description>
   </PropertyGroup>
 
   <ItemGroup>

@@ -47,12 +47,12 @@ jobs:
       - name: Pack
         run: dotnet pack --no-build -c Release -o ../../../../../artifacts -p:PackageVersion=0.$GITHUB_RUN_ID
         working-directory: ${{env.working-directory}}
-#      - name: Add NuGet sources
-#        run: |
-#          dotnet nuget add source https://nuget.pkg.github.com/${{ env.GITHUB_REPOSITORY_OWNER }}/index.json --name github
+      - name: Add NuGet sources
+        run: |
+          dotnet nuget add source https://nuget.pkg.github.com/${{ env.GITHUB_REPOSITORY_OWNER }}/index.json --name github
        
-#      - name: Nuget Push on Github
-#        run: dotnet nuget push "./artifacts/*.nupkg" --source github --api-key ${{ secrets.PERSONAL_TOKEN }} --skip-duplicate
+      - name: Nuget Push on Github
+        run: dotnet nuget push "./artifacts/*.nupkg" --source github --api-key ${{ secrets.PERSONAL_TOKEN }} --skip-duplicate
 
   sync-schemas:
     name: "Sync Schemas"

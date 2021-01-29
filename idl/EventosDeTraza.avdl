@@ -38,6 +38,16 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
     Integracion.Esquemas.Referencias.Contrato contrato;
   }
+  
+  record EnvioDesactivadoAutomaticamente{
+    // Mandatory Fields
+    string timestamp;
+    string remitente;
+    string numeroDeOrden;
+    // End Mandatory Fields
+
+    Traza traza;
+  }
 
   record EnvioEntregado{
     
