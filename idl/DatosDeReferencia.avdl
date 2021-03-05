@@ -34,7 +34,7 @@ protocol DatoDeReferenciaProtocol {
     union { null, string } lote=null;
     string numeroDeEnvio;
     union { null, string } numeroDeRecibo=null;
-    union { null,  string } numeroInformeDeRendicion=null;
+    union { null, string } numeroInformeDeRendicion=null;
     union { null, float } peso=null;
     union { null, float } pesoAforado=null;
     union { null, float } valorDeclarado=null;
@@ -67,6 +67,41 @@ protocol DatoDeReferenciaProtocol {
     union { null, double } largoEnCm=null;
   }
 
+  record DetalleDeOrdenDeEnvio{
+    string numeroDeEnvio;
+    union { null, DatosPersonales }	remitenteInformado=null;
+    DatosPersonales destinatarioInformado;
+	  union { null, DatosPersonales } destinatarioAlternativo=null;
+    LugarDeRetiroEntrega destinoInformado;
+    union { null, LugarDeRetiroEntrega } origenInformado=null;
+    string codigoDeContratoInterno;
+    union { null, string } tipoDeServicio=null;
+    union { null, string } numeroDeRemito=null;
+    union { null, array<string> } remitosComplementarios=null;
+    union { null, string } centroDeCostosDelCliente=null;
+    union { null, string } categoriaDeProducto=null;
+    union { null, string } categoriaDeFacturacion=null;
+    union { null, float } valorACobrar=null;
+    union { null, FechaPactada } fechaPactadaDeEntrega=null;
+    union { null, string } productoAEntregar=null;
+    union { null, string } productoARetirar=null;
+    TipoPagoDestino pagoDestino;
+    union { null, DatosSucursal } sucursalDeDistribucion=null;
+    union { null, string } sucursalCliente=null;
+    union { null, array<DetalleDePaquete> } listaDePaquetes=null;   
+  }
+  record DetalleDePaquete{
+    union { null, float } pesoEnKg=null;
+    union { null, float } altoEnCm=null;
+    union { null, float } anchoEnCm=null;
+    union { null, float } largoEnCm=null;
+    union { null, string } descripcion=null;
+    union { null, map<string> }	referenciasDelCliente=null;
+    union { null, float } volumenEnCm3=null;
+    union { null, float } valorDeclaradoSinImpuesto=null;
+    union { null, float } valorDeclaradoConImpuesto=null;
+  }
+
   record Direccion{
     union { null, string } abreviaturaProvincia=null;
     union { null, string } calle=null;
@@ -83,6 +118,12 @@ protocol DatoDeReferenciaProtocol {
     union { null, string } localidad=null;
     union { null, map<string> } componentesDeDireccion=null;
     union { null, GeoReferencia } coordenadas = null;
+  }
+
+  record FechaPactada{
+    union { null, string } fecha=null;
+    union { null, string } horaDesde=null;
+    union { null, string } horaHasta=null;
   }
 
   record GeoReferencia{
@@ -119,5 +160,11 @@ protocol DatoDeReferenciaProtocol {
     celular, 
     casa, 
     otro
+  }
+
+  enum TipoPagoDestino{
+    undefined, 
+    P, 
+    D
   }
 }

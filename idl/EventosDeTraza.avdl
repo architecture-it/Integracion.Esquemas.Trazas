@@ -18,58 +18,60 @@ protocol EsquemasProtocol {
   }
 
   record Admision{
-    // Mandatory Fields
-    string timestamp;
-    string remitente;
-    string numeroDeOrden;
-    // End Mandatory Fields
     Traza traza;
     Integracion.Esquemas.Referencias.DatosSucursal donde;
   }
 
   @aliases(["AltaManual", "AltaAutomatica", "AltaRemota", "AltaConAnomalias", "AltaDeExcedente"])
   record Alta{
-    // Mandatory Fields
-    string timestamp;
-    string remitente;
-    string numeroDeOrden;
-    // End Mandatory Fields
     Traza traza;
     Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
     Integracion.Esquemas.Referencias.Contrato contrato;
   }
 
-  record EnvioDesactivadoAutomaticamente{
-    // Mandatory Fields
-    string timestamp;
-    string remitente;
-    string numeroDeOrden;
-    // End Mandatory Fields
+  record ComienzoCustodiaEnSucursal{
+    Traza traza;
+    int cantidadDeDiasDeLaFase;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeCustodia=null;
+  }
 
+  record EliminarMarcaDeRescate{
+    Traza traza;
+  }
+
+  record EnvioDesactivadoAutomaticamente{
     Traza traza;
   }
 
   record EnvioEntregado{
-    
-    // Mandatory Fields
-    string timestamp;
-    string remitente;
-    string numeroDeOrden;
-    // End Mandatory Fields
-
     Traza traza;
     Integracion.Esquemas.Referencias.TipoDeEntrega tipoDeEntrega;
   }
 
-  record ReactivacionDeBolsin{
-    // Mandatory Fields
-    string timestamp;
-    string remitente;
-    string numeroDeOrden;
-    // End Mandatory Fields
+  record FinCustodiaEnSucursal{
+    Traza traza;
+    int cantidadDeDias;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeDistribucion=null;
+  }
 
+  record OrdenDeEnvioCreada {
+    Traza traza;
+    Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio datosDeLaOrden;
+    union { null, map<string> } linking=null;
+  }
+
+  record ReactivacionDeBolsin{
     Traza traza;
     Integracion.Esquemas.Referencias.DatosSucursal sucursalOrigen;
     Integracion.Esquemas.Referencias.DatosSucursal sucursalDestino;
+  }
+
+  record Rescate{
+    Traza traza;
+    union { null, string } numeroDeInformeDeRendicion=null;
   }
 }
