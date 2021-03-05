@@ -89,6 +89,6 @@ A continuacion se detalle el futuro de cada uno de estos campos:
 * __timestamp__: La metadata de los eventos en kafka ya poseen esta propiedad por lo cual este propiedad no sera mantenida.
 * __remitente__: Esta propiedad se debera publicar como header
 * __destinatario__: Esta propiedad se usaba para especificar si este mensaje va a una cola especifica. En este modelo no sera necesaria y se descartara.
-* __numeroDeOrden__: Esta propiedad posiblemente pueda sar el offset.
+* __numeroDeOrden__: Esta propiedad posiblemente pueda ser el offset del topico. (A definir)
 * __vencimiento__: Se descarta ya que el vencimiento de los mensajes no es como en mq.
  
