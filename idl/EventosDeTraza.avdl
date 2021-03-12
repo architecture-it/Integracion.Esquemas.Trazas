@@ -3,8 +3,8 @@ protocol EsquemasProtocol {
 
   import idl "DatosDeReferencia.avdl";
 
+  @namespace("Integracion.Esquemas")
   record Traza{
-
     string codigoDeEnvio;
     union { null, string } nombre=null;
     timestamp_ms cuando;
@@ -18,19 +18,19 @@ protocol EsquemasProtocol {
   }
 
   record Admision{
-    Traza traza;
+    Integracion.Esquemas.Traza traza;
     Integracion.Esquemas.Referencias.DatosSucursal donde;
   }
 
   @aliases(["AltaManual", "AltaAutomatica", "AltaRemota", "AltaConAnomalias", "AltaDeExcedente"])
   record Alta{
-    Traza traza;
+    Integracion.Esquemas.Traza traza;
     Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
     Integracion.Esquemas.Referencias.Contrato contrato;
   }
 
   record ComienzoCustodiaEnSucursal{
-    Traza traza;
+    Integracion.Esquemas.Traza traza;
     int cantidadDeDiasDeLaFase;
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
@@ -38,20 +38,20 @@ protocol EsquemasProtocol {
   }
 
   record EliminarMarcaDeRescate{
-    Traza traza;
+    Integracion.Esquemas.Traza traza;
   }
 
   record EnvioDesactivadoAutomaticamente{
-    Traza traza;
+    Integracion.Esquemas.Traza traza;
   }
 
   record EnvioEntregado{
-    Traza traza;
+    Integracion.Esquemas.Traza traza;
     Integracion.Esquemas.Referencias.TipoDeEntrega tipoDeEntrega;
   }
 
   record FinCustodiaEnSucursal{
-    Traza traza;
+    Integracion.Esquemas.Traza traza;
     int cantidadDeDias;
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
@@ -59,19 +59,19 @@ protocol EsquemasProtocol {
   }
 
   record OrdenDeEnvioCreada {
-    Traza traza;
+    Integracion.Esquemas.Traza traza;
     Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio datosDeLaOrden;
     union { null, map<string> } linking=null;
   }
 
   record ReactivacionDeBolsin{
-    Traza traza;
+    Integracion.Esquemas.Traza traza;
     Integracion.Esquemas.Referencias.DatosSucursal sucursalOrigen;
     Integracion.Esquemas.Referencias.DatosSucursal sucursalDestino;
   }
 
   record Rescate{
-    Traza traza;
+    Integracion.Esquemas.Traza traza;
     union { null, string } numeroDeInformeDeRendicion=null;
   }
 }
