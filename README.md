@@ -20,12 +20,6 @@ Aqui se puede ver un ejemplo de como queda un schema declarado en idl.
 
   record EnvioEntregado{
     
-    // Mandatory Fields
-    string timestamp;
-    string remitente;
-    string numeroDeOrden;
-    // End Mandatory Fields
-
     Traza traza;
     Integracion.Esquemas.Referencias.TipoDeEntrega tipoDeEntrega;
   }
@@ -69,6 +63,32 @@ Una vez que la validacion sea exitosa, se procedera con el merge del pull reques
 * Generacion de paquete Nuget y publicacion del mismo dentro de Github Packages.
 
 
+## headers
 
+Con el modelo anterior, al ser un modelo jerarquico donde eventos heredan de otros, era facil trasladar propiedades a todos los eventos, por ejemplo todos los eventos que heredan de `EventoDeNegocio` heredan todas sus propiedades. __Avro__ no soporta herencia por lo cual trasladar esos campos comunes no es tan simple. Por ese motivo las propiedades que anteriormente se encontraban en `EventoDeNegocio` en el modelo actual se agregaran como headers del evento a publicar.
 
+```xml
+<complexType abstract="false" name="EventoDeNegocio">
+  <sequence>
+    <element name="timestamp" type="date" minOccurs="1"
+      maxOccurs="1" />
+    <element name="remitente" type="string" minOccurs="1"
+      maxOccurs="1" />
+    <element name="destinatario" type="string" minOccurs="0"
+      maxOccurs="1" />
+    <element name="numeroDeOrden" type="string" maxOccurs="1"
+      minOccurs="0" />
+    <element name="vencimiento" type="date" minOccurs="0"
+      maxOccurs="1" />
+  </sequence>
+</complexType>
 
+```
+A continuacion se detalle el futuro de cada uno de estos campos:
+
+* __timestamp__: La metadata de los eventos en kafka ya poseen esta propiedad por lo cual este propiedad no sera mantenida.
+* __remitente__: Esta propiedad se debera publicar como header
+* __destinatario__: Esta propiedad se usaba para especificar si este mensaje va a una cola especifica. En este modelo no sera necesaria y se descartara.
+* __numeroDeOrden__: Esta propiedad posiblemente pueda ser el offset del topico. (A definir)
+* __vencimiento__: Se descarta ya que el vencimiento de los mensajes no es como en mq.
+ 
