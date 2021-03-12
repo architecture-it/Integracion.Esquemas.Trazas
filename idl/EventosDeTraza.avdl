@@ -49,7 +49,12 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Traza traza;
     Integracion.Esquemas.Referencias.TipoDeEntrega tipoDeEntrega;
   }
-
+  record EnvioNoEntregado{
+    Integracion.Esquemas.Traza traza;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+    union { null, string } reemplazadoPorNumeroDeEnvio=null;
+  }
   record FinCustodiaEnSucursal{
     Integracion.Esquemas.Traza traza;
     int cantidadDeDias;
