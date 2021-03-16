@@ -63,7 +63,7 @@ Una vez que la validacion sea exitosa, se procedera con el merge del pull reques
 * Generacion de paquete Nuget y publicacion del mismo dentro de Github Packages.
 
 
-## headers
+## Headers
 
 Con el modelo anterior, al ser un modelo jerarquico donde eventos heredan de otros, era facil trasladar propiedades a todos los eventos, por ejemplo todos los eventos que heredan de `EventoDeNegocio` heredan todas sus propiedades. __Avro__ no soporta herencia por lo cual trasladar esos campos comunes no es tan simple. Por ese motivo las propiedades que anteriormente se encontraban en `EventoDeNegocio` en el modelo actual se agregaran como headers del evento a publicar.
 
@@ -92,3 +92,33 @@ A continuacion se detalle el futuro de cada uno de estos campos:
 * __numeroDeOrden__: Esta propiedad posiblemente pueda ser el offset del topico. (A definir)
 * __vencimiento__: Se descarta ya que el vencimiento de los mensajes no es como en mq.
  
+ 
+ ## Bitácora
+ La idea de esta seccion es mencionar eventos o decisiones tomadas durante el proceso de reingenieria:
+ 
+ ### Subject Name Strategy
+Como se menciona [aqui](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#subject-name-strategy) existen 3 tipos de estrategias que usan los Serializer para registrar esquemas en la registry. Al momento de crear este repositorio, el cual registra los esquemas automaticamente, el tema de la estrategia no se tomo en cuenta por desconocimiento, y los esquemas se registran con el nombre del evento. La idea es utilizar la estrategia `RecordNameStrategy` y asi registrar cada esquema con su nombre completo incluido el namespace. Entonces el evento `EnvioEntregado` que se registraba con el mismo nombre, debera ser registrado como `Integracion.Esquemas.Trazas.EnvioEntregado`, todo estos datos pueden ser tomados del archivo `.avsc` que se genera en cada build. Actualmente las Github Actions asociadas a este repo toman el nombre del evento del archivo, lo cual debe ser modificado para tomar nombre y namespace para asi formar el nombre completo con el cual se debe registrar el esquema en la registry.
+
+### CustomSchemaAvroSerDes
+Al seleccionar la estrategia `RecordNameStrategy` nos encontramos con un problema en la libreria [Streamiz.Kafka.Net](https://github.com/LGouellec/kafka-streams-dotnet). La clase `AvroSerDes<T>` utilizada para la serializacion de eventos que se publican en los topicos no permite cambiar de estrategia, siendo la `TopicNameStrategy` la utilizada por dafault. Esto nos obliga por el momento a utiliza un `CustomSchemaAvroSerDes<T>` donde forzamos el uso de la estrategia que necesitamos usar. En paralelo se genero el PR [#58](https://github.com/LGouellec/kafka-streams-dotnet/pull/58) el cual corrige esto. Hasta que el PR no sea mergeado y una nueva version liberada, debemos utilizar el ``CustomSchemaAvroSerDes<T>`. El mismo se utiliza actualmente en el nuevo [Publicador de Integra](https://github.com/operations-innovation/dotnet-stream-integra-publisher) basado en Stream.
+ 
+### Namespace obligatorio en todos los esquemas usando en la Regitry Apicurio 
+Trabajando con la Registry Apicurio, los esquemas y los serializer surgio otro problema. Al tener bien seteada la estrategia de busqueda de schemas en el serializar y tener bien registrado los esquemas, nos encontramos en que muchas veces al querer publicar algun evento en un topico, el serializar lanzaba una exception que dicia que no podia encontrar el esquema con un codigo, un 404 not found. Luego de verificar que el esquema estaba bien registrado y que la estrategia era la correcta, detectamos que no nos pasaba con todos los esquemas, por lo cual se realizaron pruebas para verificar que parte del esquema era el que no producia el error. Luego de las pruebas, se determino que la propiedad `namespace` faltaba en el evento `Traza`, pero este a nivel esquema no es obligatorio ya que pertenece al mismo namepace del evento. Al parecer, si bien esto es correcto a nivel avro, no es algo que le guste a la registry, por este motivo, al evento `Traza` se le agrega un atributo para que se le defina un namespace distinto. Esto hace que al generar el archivo `.avsc` que se envia a la registry, la definicion de `Traza` dentro de un evento, tenga un namespace diferente. Al parecer el serializer busca el esquema en la registry enviando todo el esquema actual que posee y no solo con el nombre. Esto hace que se interprenten diferente y por eso el error. Esto parece ser un problema de como la registry interpreta los esquemas y existen algunos issues dando vueltas con esto. Hasta que esto no se solucino a nivel registry, debemos tener muy encuenta esto al momento de trabajar con schemas y la registy.
+
+```js
+  @namespace("Integracion.Esquemas")
+  record Traza{
+    string codigoDeEnvio;
+    union { null, string } nombre=null;
+    timestamp_ms cuando;
+    string codigoDeContratoInterno;
+    union { null, string } estadoDelEnvio=null;
+    union { null, string } cicloDelEnvio=null;
+    union { null, string } operador=null;
+    union { null, string } estadoDeLaRendicion=null;
+    union { null, string } comentario=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
+  }
+  ```
+  
+
