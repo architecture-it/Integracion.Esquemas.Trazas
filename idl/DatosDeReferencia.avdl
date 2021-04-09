@@ -142,6 +142,53 @@ protocol DatoDeReferenciaProtocol {
     string numero;
   }
 
+  record ListaDePropiedades{
+    union { null, map<Metadato> } metadatos=null;
+  }
+
+  record Metadato{
+    string meta;
+    string contenido;
+  }
+
+  record DatosDistribuidor{    
+    DatosPersonales datosPersonales;
+    union { null, string } medioDeLocomocion=null;
+    union { null, string } tipoDeDistribuidor=null;
+    union { null, string } legajo=null;
+    union { null, DatosSucursal } sucursalDondeTrabaja=null;
+    union { null, boolean } esEventual=null;
+    union { null, string } login=null;
+    union { null, string } idgla=null;
+    union { null, string } cuit=null;
+  }
+
+  record DetalleDeEnvioInterno{
+    union { null, string } codigoDeEnvio=null;
+    union { null, string } fechaDeAlta=null;
+    union { null, LugarDeRetiroEntrega } destino=null;
+    union { null, DatosSucursal } sucursalDestino=null;
+    union { null, DatosSucursal } sucursalOrigen=null;
+    union { null, string } estado=null;
+    union { null, ListaDeObjetos } contenido=null;
+    union { null, string } cicloDelEnvio=null;
+    union { null, string } estadoDeLaRendicion=null;
+  }
+
+  record ListaDeObjetos{
+    union { null, map<string> } objetos=null;
+  }
+
+  record ListaDeDetallesDeCobro{
+    union { null, map<DetalleDelCobro> } cobro=null;
+  }
+
+  record DetalleDelCobro{
+    FormaDeCobro formaDeCobro;
+    double importe;
+  }
+
+
   enum TipoDeDocumento{
     undefined,
     DNI,
@@ -166,5 +213,14 @@ protocol DatoDeReferenciaProtocol {
     undefined, 
     P, 
     D
+  }
+
+  enum FormaDeCobro{
+    otro,
+    cheque,
+    retenciones,
+    boletaDeDeposito,
+    siniestroPerdido,
+    efectivo
   }
 }
