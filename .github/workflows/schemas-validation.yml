@@ -5,7 +5,7 @@ on:
     branches:
       - main
 env:
-  AVRO_VERSION: 1.10.1
+  AVRO_VERSION: 1.10.2
   AVRO_MIRROR: https://apache.zero.com.ar/avro
   REGISTRY_URL: http://nlt-service-registry.apps.ocpnltools.clusters.nalabs.ml
 jobs:
