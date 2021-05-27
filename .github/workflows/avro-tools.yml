@@ -1,5 +1,4 @@
-name: avro tools
-
+name: avro-tools
 on:
   push:
     branches:
