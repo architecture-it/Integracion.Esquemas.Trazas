@@ -1,0 +1,96 @@
+name: avro tools
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+     - 'idl/**'
+env:
+  # Stop wasting time caching packages
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  # Disable sending usage data to Microsoft
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  AVRO_VERSION: 1.10.1
+  AVRO_MIRROR: https://apache.zero.com.ar/avro
+  REGISTRY_URL: http://nlt-service-registry.apps.ocpnltools.clusters.nalabs.ml
+  GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }} 
+jobs:
+  gen-nuget:
+    name: "Generate Libs"
+    runs-on: ubuntu-18.04
+    env:
+      working-directory: 'lang/csharp/Trazas/Integracion/Esquemas'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.401
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11' # The JDK version to make available on the path.
+          java-package: jre # (jre, jdk, or jdk+fx) - defaults to jdk
+          architecture: x64 # (x64 or x86) - defaults to x64
+      - name: Get Avro Tools
+        run: wget --quiet $AVRO_MIRROR/avro-$AVRO_VERSION/java/avro-tools-$AVRO_VERSION.jar
+      - name: Get Avro Gen
+        run: dotnet tool install Apache.Avro.Tools --version $AVRO_VERSION --global
+      - name: Generate Protocol
+        run: java -jar avro-tools-$AVRO_VERSION.jar idl idl/EventosDeTraza.avdl EventosDeTraza.avpr
+      - name: AvroGen
+        run: avrogen -p EventosDeTraza.avpr lang/csharp/Trazas
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{env.working-directory}}
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+        working-directory: ${{env.working-directory}}
+      - name: Pack
+        run: dotnet pack --no-build -c Release -o ../../../../../artifacts -p:PackageVersion=0.$GITHUB_RUN_ID
+        working-directory: ${{env.working-directory}}
+      - name: Add NuGet sources
+        run: |
+          dotnet nuget add source https://nuget.pkg.github.com/${{ env.GITHUB_REPOSITORY_OWNER }}/index.json --name github
+       
+      - name: Nuget Push on Github
+        run: dotnet nuget push "./artifacts/*.nupkg" --source github --api-key ${{ secrets.PERSONAL_TOKEN }} --skip-duplicate
+
+  sync-schemas:
+    name: "Sync Schemas"
+    runs-on: ubuntu-18.04
+    needs: ["gen-nuget"]
+    env:
+      sync_schemas: ${{ secrets.SYNC_SCHEMAS }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11' # The JDK version to make available on the path.
+          java-package: jre # (jre, jdk, or jdk+fx) - defaults to jdk
+          architecture: x64 # (x64 or x86) - defaults to x64
+      - name: Get Avro Tools
+        run: wget --quiet $AVRO_MIRROR/avro-$AVRO_VERSION/java/avro-tools-$AVRO_VERSION.jar
+      - name: Generate Schematas
+        run: java -jar avro-tools-$AVRO_VERSION.jar idl2schemata idl/EventosDeTraza.avdl ./schematas
+      - name: Sync with Registry
+        if: ${{ env.sync_schemas }} == 'true'
+        run: |
+          for filename in ./schematas/*.avsc; do
+            
+            namespace=`cat $filename | jq -r '.namespace'`
+            target_ns='Integracion.Esquemas.Trazas'
+            if [ "$namespace" == "$target_ns" ]
+              then
+                name=`cat $filename | jq -r '.name'`
+                exists=`curl -s -o /dev/null -w "%{http_code}" $REGISTRY_URL/api/artifacts/$name`
+                if [ "$exists" == "200"  ]
+                  then
+                    echo "Schema $name already exist, the schema will be updated."
+                    curl -i -X POST $REGISTRY_URL/api/artifacts?ifExists=RETURN_OR_UPDATE -H "Content-Type: application/json; artifactType=AVRO" -H "X-Registry-ArtifactId: $name" --data-binary "@$filename"
+                  else
+                    echo "Schema $name does not exist, the schema will be created."
+                    curl -i -X POST $REGISTRY_URL/api/artifacts -H "Content-Type: application/json; artifactType=AVRO" -H "X-Registry-ArtifactId: $name" --data-binary "@$filename"
+                  fi
+              fi
+          done
