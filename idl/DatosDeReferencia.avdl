@@ -135,6 +135,13 @@ protocol DatoDeReferenciaProtocol {
   record LugarDeRetiroEntrega{
     union { null, DatosSucursal } datosSucursal=null;
     union { null, Direccion } domicilio=null;
+    union { null, string } codigoPostal=null;
+    union { null, string } descripcion=null;
+    union { null, string } localidad=null;
+    union { null, string } esLocal=null;
+    union { null, string } pais=null;
+    union { null, string } region=null;
+
   }
 
   record Telefono{
