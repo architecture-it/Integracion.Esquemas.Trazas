@@ -384,12 +384,16 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Traza traza;  
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;       
   }
-
   enum TipoDeCiclo{
     Nothing,
     Distribution,
     Resend,
     Drop,
     Custody
+  }
+  enum TiposDePruebas{
+    Pull,
+    Request,
+    Avro
   }
 }
