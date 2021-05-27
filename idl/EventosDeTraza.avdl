@@ -390,6 +390,6 @@ protocol EsquemasProtocol {
     Distribution,
     Resend,
     Drop,
-    Custodia
+    Custody
   }
 }
