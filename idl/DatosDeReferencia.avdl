@@ -174,8 +174,8 @@ protocol DatoDeReferenciaProtocol {
     union { null, string } codigoDeEnvio=null;
     union { null, string } fechaDeAlta=null;
     union { null, LugarDeRetiroEntrega } destino=null;
-    union { null, DatosSucursal } sucursalDestino=null;
-    union { null, DatosSucursal } sucursalOrigen=null;
+    union { null, LugarDeRetiroEntrega } sucursalDestino=null;
+    union { null, LugarDeRetiroEntrega } sucursalOrigen=null;
     union { null, string } estado=null;
     union { null, ListaDeObjetos } contenido=null;
     union { null, string } cicloDelEnvio=null;

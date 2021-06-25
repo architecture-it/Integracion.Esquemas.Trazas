@@ -91,6 +91,7 @@ protocol EsquemasProtocol {
   record CambioDeDestino{
     Integracion.Esquemas.Traza traza;
     Integracion.Esquemas.Referencias.LugarDeRetiroEntrega nuevoDestino;
+    Integracion.Esquemas.Referencias.LugarDeRetiroEntrega nuevaSucursal;
     boolean esSolicitadoPorCliente;
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
@@ -104,6 +105,7 @@ protocol EsquemasProtocol {
   record CanalizadoACourier{
     Integracion.Esquemas.Traza traza;
     union { null, Integracion.Esquemas.Referencias.ListaDePropiedades} datosAdicionales=null;
+    union { null, string } courier=null;    
   }
 
   record CierreDeEntidad{
@@ -281,7 +283,9 @@ protocol EsquemasProtocol {
   }
 
   record InicioCicloDeRendicion{
-    Integracion.Esquemas.Traza traza;  
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
+    Integracion.Esquemas.Referencias.Contrato contrato;
     TipoDeCiclo queCiclo;
   }
 
