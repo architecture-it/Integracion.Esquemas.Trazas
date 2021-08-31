@@ -104,7 +104,7 @@ protocol EsquemasProtocol {
 
   record CanalizadoACourier{
     Integracion.Esquemas.Traza traza;
-    union { null, Integracion.Esquemas.Referencias.ListaDePropiedades} datosAdicionales=null;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
     union { null, string } courier=null;    
   }
 
@@ -112,7 +112,7 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Traza traza;  
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
-    union { null, Integracion.Esquemas.Referencias.ListaDePropiedades} datosAdicionales=null;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
   }
 
   record EliminarMarcaDeDestruccion{
@@ -252,7 +252,7 @@ protocol EsquemasProtocol {
     string queNovedad;
     string courier;
     union { null, string } resultado=null;
-    union { null, Integracion.Esquemas.Referencias.ListaDePropiedades } datosAdicionales=null;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
   }
 
   record ExcesoDePeso{
@@ -266,7 +266,7 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Traza traza;  
     double importe;
     Integracion.Esquemas.Referencias.DatosSucursal donde;
-    Integracion.Esquemas.Referencias.ListaDeDetallesDeCobro componentesDeCobro;    
+    array<Integracion.Esquemas.Referencias.Metadato> componentesDeCobro;    
   }
 
   record GestionCobranzaAnulada{
@@ -308,7 +308,7 @@ protocol EsquemasProtocol {
   record RecibidoEnCourier{
     Integracion.Esquemas.Traza traza;  
     string courier;
-    union { null, Integracion.Esquemas.Referencias.ListaDePropiedades } datosAdicionales=null;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
   }
 
   record RecepcionEnSucursalDestino{
@@ -376,7 +376,7 @@ protocol EsquemasProtocol {
     union { null, string } submotivo=null;
     union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor=null;
     union { null, Integracion.Esquemas.Referencias.LugarDeRetiroEntrega } donde=null;
-    union { null, Integracion.Esquemas.Referencias.ListaDePropiedades} datosAdicionales=null;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
   }
 
   record RecepcionLogica{
