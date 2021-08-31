@@ -266,7 +266,7 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Traza traza;  
     double importe;
     Integracion.Esquemas.Referencias.DatosSucursal donde;
-    array<Integracion.Esquemas.Referencias.Metadato> componentesDeCobro;    
+    array<Integracion.Esquemas.Referencias.DetalleDelCobro> componentesDeCobro;    
   }
 
   record GestionCobranzaAnulada{
