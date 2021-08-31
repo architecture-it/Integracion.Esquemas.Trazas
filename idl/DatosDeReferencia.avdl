@@ -88,7 +88,7 @@ protocol DatoDeReferenciaProtocol {
     TipoPagoDestino pagoDestino;
     union { null, DatosSucursal } sucursalDeDistribucion=null;
     union { null, string } sucursalCliente=null;
-    union { null, array<DetalleDePaquete> } listaDePaquetes=null;   
+    union { null, array<DetalleDePaquete> } paquetes=null;   
   }
   record DetalleDePaquete{
     union { null, float } pesoEnKg=null;
@@ -149,10 +149,6 @@ protocol DatoDeReferenciaProtocol {
     string numero;
   }
 
-  record ListaDePropiedades{
-    union { null, map<Metadato> } metadatos=null;
-  }
-
   record Metadato{
     string meta;
     string contenido;
@@ -177,17 +173,9 @@ protocol DatoDeReferenciaProtocol {
     union { null, LugarDeRetiroEntrega } sucursalDestino=null;
     union { null, LugarDeRetiroEntrega } sucursalOrigen=null;
     union { null, string } estado=null;
-    union { null, ListaDeObjetos } contenido=null;
+    union { null, array<string> } contenido=null;
     union { null, string } cicloDelEnvio=null;
     union { null, string } estadoDeLaRendicion=null;
-  }
-
-  record ListaDeObjetos{
-    union { null, map<string> } objetos=null;
-  }
-
-  record ListaDeDetallesDeCobro{
-    union { null, map<DetalleDelCobro> } cobro=null;
   }
 
   record DetalleDelCobro{
