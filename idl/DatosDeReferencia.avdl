@@ -2,6 +2,7 @@
 protocol DatoDeReferenciaProtocol {
 
   record Contrato{   
+  
     string codigoDeContratoInterno;
     union { null, string } descripcion=null;
     boolean estaActivo;
