@@ -20,6 +20,7 @@ protocol DatoDeReferenciaProtocol {
     union { null, array<Telefono> }  telefonos=null;
     union { null, string } agrupador=null;
     TipoDeDocumento tipoDeDocumento;
+    
   }
 
   record DatosSucursal{
