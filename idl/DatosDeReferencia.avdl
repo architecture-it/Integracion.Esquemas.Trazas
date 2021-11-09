@@ -25,8 +25,7 @@ protocol DatoDeReferenciaProtocol {
   record DatosSucursal{
     string codigo;
     union { null, string } nombre=null;
-    string id;
-    
+    string id;    
   }
 
   record DetalleDeEnvio{
