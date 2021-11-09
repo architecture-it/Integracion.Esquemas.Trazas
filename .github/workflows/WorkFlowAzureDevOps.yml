@@ -23,7 +23,7 @@ jobs:
     name: "Generate Libs"
     runs-on: ubuntu-latest
     env:
-      working-directory: ${{env.DIRECORY_SRC}}
+      working-directory: 'lang/csharp/Trazas/Integracion/Esquemas'
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET Core
@@ -76,7 +76,7 @@ jobs:
       # Run dotnet build and package
       - name: Restore dependencies
         run: dotnet restore
-        working-directory: ${{env.working-directory}}
+        working-directory: 'lang/csharp/Trazas/Integracion/Esquemas'
       - name: Build
         run: dotnet build --configuration Release --no-restore
         working-directory: ${{env.working-directory}}
