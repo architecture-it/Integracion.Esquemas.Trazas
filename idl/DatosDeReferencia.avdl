@@ -19,8 +19,7 @@ protocol DatoDeReferenciaProtocol {
     union { null, string } eMail=null;
     union { null, array<Telefono> }  telefonos=null;
     union { null, string } agrupador=null;
-    TipoDeDocumento tipoDeDocumento;
-    
+    TipoDeDocumento tipoDeDocumento;    
   }
 
   record DatosSucursal{
