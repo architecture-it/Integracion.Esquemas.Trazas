@@ -17,13 +17,13 @@ env:
   AZURE_ARTIFACTS_FEED_URL: https://pkgs.dev.azure.com/andreani/_packaging/andreani/nuget/v3/index.json   
   BUILD_CONFIGURATION: 'Release'    # set this to the appropriate build configuration
   DOTNET_VERSION: '3.1.x'
-  DIRECORY_SRC: './src'
+  DIRECORY_SRC: 'lang/csharp/Trazas/Integracion/Esquemas'
 jobs:
   gen-nuget:
     name: "Generate Libs"
     runs-on: ubuntu-latest
     env:
-      working-directory: 'lang/csharp/Trazas/Integracion/Esquemas'
+      working-directory: ${{env.DIRECORY_SRC}}
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET Core
@@ -72,16 +72,22 @@ jobs:
           source-url: ${{ env.AZURE_ARTIFACTS_FEED_URL }}
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.AZURE_ARTIFACTS_PAT }} 
-
+          working-directory: ${{env.DIRECORY_SRC}}
       # Run dotnet build and package
-      - name: dotnet build and publish
-        run: |
-          dotnet restore
-          dotnet build --configuration '${{ env.BUILD_CONFIGURATION }}'
-          dotnet pack -c '${{ env.BUILD_CONFIGURATION }}' ../../../../../artifacts --version-suffix $GITHUB_RUN_ID
-        working-directory: ${{ env.working-directory }}
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{env.working-directory}}
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+        working-directory: ${{env.working-directory}}
+      - name: Pack
+        run: dotnet pack --no-build -c Release -o ../../../../../artifacts --version-suffix $GITHUB_RUN_ID
+        working-directory: ${{env.working-directory}}
 
       # Publish the package to Azure Artifacts
       - name: 'dotnet publish'
         run: dotnet nuget push --api-key ${{ secrets.AZURE_ARTIFACTS_PAT }} ../../../../../artifacts/*.nupkg
         working-directory: ${{ env.working-directory }}
+
+
+
