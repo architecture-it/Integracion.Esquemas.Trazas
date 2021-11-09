@@ -1,8 +1,7 @@
 @namespace("Integracion.Esquemas.Referencias")
 protocol DatoDeReferenciaProtocol {
 
-  record Contrato{
-  
+  record Contrato{  
     string codigoDeContratoInterno;
     union { null, string } descripcion=null;
     boolean estaActivo;
