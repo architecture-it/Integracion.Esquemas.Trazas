@@ -218,5 +218,6 @@ protocol DatoDeReferenciaProtocol {
     boletaDeDeposito,
     siniestroPerdido,
     efectivo
+    
     }
 }
