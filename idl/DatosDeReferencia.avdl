@@ -26,6 +26,7 @@ protocol DatoDeReferenciaProtocol {
     string codigo;
     union { null, string } nombre=null;
     string id;
+    
   }
 
   record DetalleDeEnvio{
