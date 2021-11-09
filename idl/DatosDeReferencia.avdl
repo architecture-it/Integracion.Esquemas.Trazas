@@ -216,7 +216,6 @@ protocol DatoDeReferenciaProtocol {
     retenciones,
     boletaDeDeposito,
     siniestroPerdido,
-    efectivo,
-    editnico
-  }
+    efectivo
+    }
 }
