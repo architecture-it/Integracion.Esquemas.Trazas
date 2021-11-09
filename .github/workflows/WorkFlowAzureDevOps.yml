@@ -57,5 +57,5 @@ jobs:
         run: dotnet pack --no-build -c Release -o ../../../../../artifacts --version-suffix $GITHUB_RUN_ID
         working-directory: ${{env.working-directory}}
       - name: 'dotnet publish'
-        run: dotnet nuget push --api-key ${{ secrets.AZURE_ARTIFACTS_PAT }} bin/Release/*.nupkg 
+        run: dotnet nuget push --api-key ${{ secrets.AZURE_ARTIFACTS_PAT }} ./artifacts/*.nupkg
         working-directory: ${{env.working-directory}}
