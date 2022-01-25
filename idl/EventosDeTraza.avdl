@@ -28,6 +28,9 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Traza traza;
     Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
     Integracion.Esquemas.Referencias.Contrato contrato;
+    union { null, int } cantidadDeBultos=null;
+    union { null, string } agrupadorDeBultos=null;
+    union { null, int } numeroDeBulto=null;
   }
 
   record ComienzoCustodiaEnSucursal{
