@@ -3,7 +3,7 @@ name: Schemas Validation
 on:
   pull_request:
     branches:
-      - main
+      - backup
 env:
   AVRO_VERSION: 1.10.2
   AVRO_MIRROR: https://apache.zero.com.ar/avro
