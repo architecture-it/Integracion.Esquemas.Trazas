@@ -1,4 +1,5 @@
 @namespace("Integracion.Esquemas.Trazas")
+
 protocol EsquemasProtocol {
 
   import idl "DatosDeReferencia.avdl";
