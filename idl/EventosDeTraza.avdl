@@ -4,7 +4,7 @@ protocol EsquemasProtocol {
 
   import idl "DatosDeReferencia.avdl";
 
-  imrpot idl "TrazaReferencia.avdl";
+  import idl "TrazaReferencia.avdl";
 
   record Admision{
     Integracion.Esquemas.Traza traza;
