@@ -9,8 +9,8 @@
     <Authors>Andreani</Authors>
     <Company>Andreani</Company>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://github.com/architecture-it/Integracion.Esquemas.Avro</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/architecture-it/Integracion.Esquemas.Avro</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/architecture-it/Integracion.Esquemas.Trazas</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/architecture-it/Integracion.Esquemas.Trazas</RepositoryUrl>
     <Description>Catalogo de eventos</Description>
   </PropertyGroup>
 
