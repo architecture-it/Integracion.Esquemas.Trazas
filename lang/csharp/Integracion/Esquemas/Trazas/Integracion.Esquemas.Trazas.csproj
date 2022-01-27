@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Integracion.Esquemas.Trazas</AssemblyName>
-    <RootNamespace>Integracion.Esquemas.Trazas</RootNamespace>
+    <RootNamespace>Integracion.Esquemas</RootNamespace>
     <Authors>Andreani</Authors>
     <Company>Andreani</Company>
     <RepositoryType>git</RepositoryType>
