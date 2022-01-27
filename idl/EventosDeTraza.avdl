@@ -21,28 +21,4 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Traza traza;
     Integracion.Esquemas.Referencias.DatosSucursal donde;
   }
-
-  @aliases(["AltaManual", "AltaAutomatica", "AltaRemota", "AltaConAnomalias", "AltaDeExcedente"])
-  record Alta{
-    Integracion.Esquemas.Traza traza;
-    Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
-    Integracion.Esquemas.Referencias.Contrato contrato;
-    union { null, int } cantidadDeBultos=null;
-    union { null, string } agrupadorDeBultos=null;
-    union { null, int } numeroDeBulto=null;
-  }
-
-  record ComienzoCustodiaEnSucursal{
-    Integracion.Esquemas.Traza traza;
-    int cantidadDeDiasDeLaFase;
-    union { null, string } motivo=null;
-    union { null, string } submotivo=null;
-    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeCustodia=null;
-  }
-
-  record EliminarMarcaDeRescate{
-    Integracion.Esquemas.Traza traza;
-  }
-
-  
 }
