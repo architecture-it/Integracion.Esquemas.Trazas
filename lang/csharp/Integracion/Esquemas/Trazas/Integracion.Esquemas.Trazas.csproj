@@ -5,7 +5,6 @@
     <!-- <AssemblyName>Integracion.Esquemas.Trazas</AssemblyName>
     <RootNamespace>Integracion.Esquemas</RootNamespace> -->
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Libreria de eventos de RHpro</Description>
     <Authors>Andreani</Authors>
