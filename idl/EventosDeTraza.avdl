@@ -1,11 +1,9 @@
-@namespace("Integracion.Esquemas.Trazas")
+@namespace("Integracion.Esquemas")
 
 protocol EsquemasProtocol {
 
   import idl "DatosDeReferencia.avdl";
 
-
-  @namespace("Integracion.Esquemas")
   record Traza{
     string codigoDeEnvio;
     union { null, string } nombre=null;
