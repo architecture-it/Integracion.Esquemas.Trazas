@@ -17,4 +17,8 @@ protocol EsquemasProtocol {
     union { null, string } comentario=null;
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
   }
+
+  record Admision{
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
 }
