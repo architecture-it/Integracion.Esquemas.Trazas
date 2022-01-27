@@ -1,9 +1,21 @@
 @namespace("Integracion.Esquemas.Trazas")
 
 protocol EsquemasProtocol {
-
   import idl "DatosDeReferencia.avdl";
-  import idl "Traza.avdl";
+  
+  @namespace("Integracion.Esquemas")
+  record Traza{
+    string codigoDeEnvio;
+    union { null, string } nombre=null;
+    timestamp_ms cuando;
+    string codigoDeContratoInterno;
+    union { null, string } estadoDelEnvio=null;
+    union { null, string } cicloDelEnvio=null;
+    union { null, string } operador=null;
+    union { null, string } estadoDeLaRendicion=null;
+    union { null, string } comentario=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
+  }
 
   record Admision{
     Integracion.Esquemas.Traza traza;
