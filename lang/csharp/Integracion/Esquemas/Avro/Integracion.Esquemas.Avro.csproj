@@ -1,9 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!-- <TargetFramework>netstandard2.0</TargetFramework> -->
-    <!-- <AssemblyName>Integracion.Esquemas.Trazas</AssemblyName>
-    <RootNamespace>Integracion.Esquemas</RootNamespace> -->
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
