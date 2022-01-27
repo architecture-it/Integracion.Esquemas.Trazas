@@ -1,7 +1,6 @@
 @namespace("Integracion.Esquemas.Trazas")
 
 protocol EsquemasProtocol {
-
   @namespace("Integracion.Esquemas")
   record Traza{
     string codigoDeEnvio;
