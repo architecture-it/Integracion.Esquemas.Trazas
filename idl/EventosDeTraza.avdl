@@ -2,9 +2,404 @@
 
 protocol EsquemasProtocol {
 
-  import idl "DatosDeReferencia.avdl";
-  
+  @namespace("Integracion.Esquemas")
+  record Traza{
+    string codigoDeEnvio;
+    union { null, string } nombre=null;
+    timestamp_ms cuando;
+    string codigoDeContratoInterno;
+    union { null, string } estadoDelEnvio=null;
+    union { null, string } cicloDelEnvio=null;
+    union { null, string } operador=null;
+    union { null, string } estadoDeLaRendicion=null;
+    union { null, string } comentario=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
+  }
+
   record Admision{
-     Integracion.Esquemas.Referencias.DatosSucursal donde;
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
+
+  @aliases(["AltaManual", "AltaAutomatica", "AltaRemota", "AltaConAnomalias", "AltaDeExcedente"])
+  record Alta{
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
+    Integracion.Esquemas.Referencias.Contrato contrato;
+    union { null, int } cantidadDeBultos=null;
+    union { null, string } agrupadorDeBultos=null;
+    union { null, int } numeroDeBulto=null;
+  }
+
+  record ComienzoCustodiaEnSucursal{
+    Integracion.Esquemas.Traza traza;
+    int cantidadDeDiasDeLaFase;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeCustodia=null;
+  }
+
+  record EliminarMarcaDeRescate{
+    Integracion.Esquemas.Traza traza;
+  }
+
+  record EnvioDesactivadoAutomaticamente{
+    Integracion.Esquemas.Traza traza;
+  }
+
+  record EnvioEntregado{
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.TipoDeEntrega tipoDeEntrega;
+  }
+  record EnvioNoEntregado{
+    Integracion.Esquemas.Traza traza;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+    union { null, string } reemplazadoPorNumeroDeEnvio=null;
+  }
+  record FinCustodiaEnSucursal{
+    Integracion.Esquemas.Traza traza;
+    int cantidadDeDias;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeDistribucion=null;
+  }
+
+  record OrdenDeEnvioCreada {
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio datosDeLaOrden;
+    union { null, map<string> } linking=null;
+  }
+
+  record ReactivacionDeBolsin{
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.DatosSucursal sucursalOrigen;
+    Integracion.Esquemas.Referencias.DatosSucursal sucursalDestino;
+  }
+
+  record Rescate{
+    Integracion.Esquemas.Traza traza;
+    union { null, string } numeroDeInformeDeRendicion=null;
+  }
+
+  record AsignacionACaja{
+    Integracion.Esquemas.Traza traza;
+    string caja;
+    string fajo;
+    Integracion.Esquemas.Referencias.DatosSucursal sucursalActual;
+    union { null, string } operador=null;
+  }
+
+  record CambioDeDestino{
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.LugarDeRetiroEntrega nuevoDestino;
+    Integracion.Esquemas.Referencias.LugarDeRetiroEntrega nuevaSucursal;
+    boolean esSolicitadoPorCliente;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+    union { null, string } observaciones=null;
+  }
+
+  record PasajeDeExcedenteAIngresada{
+    Integracion.Esquemas.Traza traza;
+  }
+
+  record CanalizadoACourier{
+    Integracion.Esquemas.Traza traza;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
+    union { null, string } courier=null;    
+  }
+
+  record CierreDeEntidad{
+    Integracion.Esquemas.Traza traza;  
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
+  }
+
+  record EliminarMarcaDeDestruccion{
+    Integracion.Esquemas.Traza traza;  
+  }
+
+  record EntregaEnSucursalSolicitada{
+    Integracion.Esquemas.Traza traza;  
+    int cantidad;
+  }
+
+  record EnvioAnulado{
+    Integracion.Esquemas.Traza traza;  
+    union { null, string } quienAnulo=null;
+  }
+
+  record EnvioConsolidado{
+    Integracion.Esquemas.Traza traza;  
+    string codigoDeContenedor;
+  }
+
+  record EnvioDigitalizado{
+    Integracion.Esquemas.Traza traza;  
+  }
+
+  record EnvioDespachado{
+    Integracion.Esquemas.Traza traza;  
+    string codigoDeContenedor;
+  }
+
+  record Siniestro{
+    Integracion.Esquemas.Traza traza;  
+    string numeroDeEnvioDelCliente;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+  }
+
+  record EnvioRendido{
+    Integracion.Esquemas.Traza traza;
+  }
+
+  record EnvioActualizado{
+    Integracion.Esquemas.Traza traza;
+  }
+
+  record EnvioConDocumentacionErronea{
+    Integracion.Esquemas.Traza traza;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+  }
+
+  record PedidoDeDestruccion{
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.DatosSucursal sucursalDeDestruccion;
+  }
+
+  record Destruccion{
+    Integracion.Esquemas.Traza traza;
+  }
+
+  record RendicionDigital{    
+    Integracion.Esquemas.Traza traza;
+    string esAutomatica;
+  }
+
+  record Digitalizacion{
+    Integracion.Esquemas.Traza traza;
+  }
+
+  record Distribucion{
+    Integracion.Esquemas.Traza traza;    
+    Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
+    string hojaDeRuta;
+    union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } desdeDonde=null;
+  }
+
+  record ExcesoDeCantidad{
+    Integracion.Esquemas.Traza traza;    
+  }
+
+  record ExcesoDeFrecuencia{
+    Integracion.Esquemas.Traza traza;    
+  }
+
+  record ExpedicionEntregada{
+    Integracion.Esquemas.Traza traza;    
+  }
+
+  record ExpedicionEnReparto{
+    Integracion.Esquemas.Traza traza;    
+  }
+
+  record Reenvio{
+    Integracion.Esquemas.Traza traza;    
+    boolean esInterno;
+  }
+
+  record VerificadoDeImagen{
+    Integracion.Esquemas.Traza traza;    
+    boolean esResultadoCorrecto;
+  }
+  
+  record ImportacionDeDatosAdicionales{
+    Integracion.Esquemas.Traza traza;    
+  }
+
+  record IncorporarMarcaDeCustodia{
+    Integracion.Esquemas.Traza traza;   
+    Integracion.Esquemas.Referencias.DatosSucursal sucursalDeCustodia;
+  }
+
+  record AltaInterna{
+    Integracion.Esquemas.Traza traza;   
+    Integracion.Esquemas.Referencias.DetalleDeEnvioInterno envio;    
+    Integracion.Esquemas.Referencias.Contrato contrato;
+  }
+
+  record RendicionLogica{
+    Integracion.Esquemas.Traza traza;   
+    boolean esAutomatica;
+    boolean esEnBaseArchivo;
+  }
+
+  record ExcedenteLogico{
+    Integracion.Esquemas.Traza traza;   
+  }
+
+  record IntroduccionDeMotivo{
+    Integracion.Esquemas.Traza traza;   
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+  }
+
+  record NovedadConEnvioEnCourier{
+    Integracion.Esquemas.Traza traza;  
+    string queNovedad;
+    string courier;
+    union { null, string } resultado=null;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
+  }
+
+  record ExcesoDePeso{
+    Integracion.Esquemas.Traza traza;  
+    Integracion.Esquemas.Referencias.DatosSucursal sucursalMoviento;
+    double pesoContratado;
+    double pesoDeExceso;
+  }
+
+  record GestionCobranza{
+    Integracion.Esquemas.Traza traza;  
+    double importe;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+    array<Integracion.Esquemas.Referencias.DetalleDelCobro> componentesDeCobro;    
+  }
+
+  record GestionCobranzaAnulada{
+    Integracion.Esquemas.Traza traza;  
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
+
+  record EnvioPendienteDeDigitalizacion{
+    Integracion.Esquemas.Traza traza;  
+  }
+
+  record EnvioPendienteDeValidacion{
+    Integracion.Esquemas.Traza traza;  
+  }
+
+  record InicioCicloDeRendicion{
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
+    Integracion.Esquemas.Referencias.Contrato contrato;
+    TipoDeCiclo queCiclo;
+  }
+
+  record EnvioEnInformeDeRendicion{
+    Integracion.Esquemas.Traza traza;  
+    string numeroDeInformeDeRendicion;
+    union { null, string } motivo=null;
+  }
+
+  record Impresion{
+    Integracion.Esquemas.Traza traza;  
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
+
+  record EnvioRecanalizado{
+    Integracion.Esquemas.Traza traza;  
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } nuevaSucursalDeDistribucion=null;
+  }
+
+  record RecibidoEnCourier{
+    Integracion.Esquemas.Traza traza;  
+    string courier;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
+  }
+
+  record RecepcionEnSucursalDestino{
+    Integracion.Esquemas.Traza traza;  
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+  }
+
+  record RendicionConRemito{
+    Integracion.Esquemas.Traza traza;  
+  }
+
+  record RectificacionDeMotivo{
+    Integracion.Esquemas.Traza traza;  
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+  }
+
+  record SolicitudDeRescate{
+    Integracion.Esquemas.Traza traza;  
+    boolean esInterno;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDondeSeRescata=null;
+  }
+
+  record ExpedicionHojaDeRutaCabecera{
+    Integracion.Esquemas.Traza traza;  
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalQueExpide=null;
+    union { null, string } medioDeExpedicion=null;    
+  }
+
+  record ExpedicionHojaDeRutaDeViaje{
+    Integracion.Esquemas.Traza traza;  
+    string hojaDeRuta;
+    union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalQueExpide=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalQueRecibe=null;
+    union { null, string } medioDeExpedicion=null;    
+  }
+
+  record RemisionDeEnvio{
+    Integracion.Esquemas.Traza traza;  
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } nuevaSucursalDestino=null;
+    union { null, boolean } esControlado=null;
+  }
+
+  record InicioEtapaDeGestionTelefonica{
+    Integracion.Esquemas.Traza traza;  
+    union { null, boolean } centralizada=null;
+    union { null, Integracion.Esquemas.Referencias.LugarDeRetiroEntrega } nuevoDestino=null;
+    union { null, Integracion.Esquemas.Referencias.LugarDeRetiroEntrega } nuevaSucursal=null;
+  }
+
+  record GestionTelefonica{
+    Integracion.Esquemas.Traza traza;  
+    union { null, string } fechaPactadaDesde=null;    
+    union { null, string } fechaPactadaHasta=null;    
+    union { null, string } motivo=null; 
+    union { null, string } submotivo=null;
+  }
+
+  record Visita{
+    Integracion.Esquemas.Traza traza;  
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+    union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor=null;
+    union { null, Integracion.Esquemas.Referencias.LugarDeRetiroEntrega } donde=null;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
+  }
+
+  record RecepcionLogica{
+    Integracion.Esquemas.Traza traza;  
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;    
+  }
+
+  record ObservadoFueraDelRangoHorario{
+    Integracion.Esquemas.Traza traza;  
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;       
+  }
+  enum TipoDeCiclo{
+    Nothing,
+    Distribution,
+    Resend,
+    Drop,
+    Custody
+  }
+  enum TiposDePruebas{
+    Pull,
+    Request,
+    Avro
   }
 }
