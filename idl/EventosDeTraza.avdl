@@ -4,7 +4,17 @@ protocol EsquemasProtocol {
 
   import idl "DatosDeReferencia.avdl";
 
-  record Admision{
-    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  @namespace("Integracion.Esquemas")
+  record Traza{
+    string codigoDeEnvio;
+    union { null, string } nombre=null;
+    timestamp_ms cuando;
+    string codigoDeContratoInterno;
+    union { null, string } estadoDelEnvio=null;
+    union { null, string } cicloDelEnvio=null;
+    union { null, string } operador=null;
+    union { null, string } estadoDeLaRendicion=null;
+    union { null, string } comentario=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
   }
 }
