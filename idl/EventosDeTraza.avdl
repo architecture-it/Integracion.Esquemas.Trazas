@@ -19,6 +19,6 @@ protocol EsquemasProtocol {
   }
 
   record Admision{
-    union { null, Integracion.Esquemas.Traza } traza=null;
+    Traza traza;
   }
 }
