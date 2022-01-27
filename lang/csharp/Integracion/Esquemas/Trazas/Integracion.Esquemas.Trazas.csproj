@@ -2,11 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Integracion.Esquemas.Trazas</AssemblyName>
-    <RootNamespace>Integracion.Esquemas</RootNamespace>
+    <!-- <AssemblyName>Integracion.Esquemas.Trazas</AssemblyName>
+    <RootNamespace>Integracion.Esquemas</RootNamespace> -->
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>Libreria de eventos de RHpro</Description>
     <Authors>Andreani</Authors>
     <Company>Andreani</Company>
     <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/architecture-it/Integracion.Esquemas.Avro</PackageProjectUrl>
     <RepositoryUrl>https://github.com/architecture-it/Integracion.Esquemas.Avro</RepositoryUrl>
     <Description>Catalogo de eventos</Description>
   </PropertyGroup>

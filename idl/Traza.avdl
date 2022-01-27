@@ -1,7 +1,7 @@
 @namespace("Integracion.Esquemas")
 protocol TrazaProtocol {
     import idl "DatosDeReferencia.avdl";
-    
+ 
     record Traza{
     string codigoDeEnvio;
     union { null, string } nombre=null;
