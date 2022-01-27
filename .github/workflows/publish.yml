@@ -43,7 +43,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
         working-directory: ${{env.DIRECORY_SRC}}
       - name: Pack
-        run: dotnet pack -p:PackageVersion=1.0.$GITHUB_RUN_NUMBER --no-build -c Release -o ${{ env.OUTPUT_DIRECTORY }}
+        run: dotnet pack -p:PackageVersion=1.0.rc-$GITHUB_RUN_NUMBER --no-build -c Release -o ${{ env.OUTPUT_DIRECTORY }}
         working-directory: ${{env.DIRECORY_SRC}}
       - name: Add NuGet sources
         run: |
