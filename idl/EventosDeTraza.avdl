@@ -3,6 +3,7 @@
 protocol EsquemasProtocol {
 
   import idl "DatosDeReferencia.avdl";
+  
   record Admision{
      Integracion.Esquemas.Referencias.DatosSucursal donde;
   }

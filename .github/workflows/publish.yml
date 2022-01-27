@@ -10,7 +10,7 @@ env:
   AVRO_MIRROR: https://apache.zero.com.ar/avro
   GITHUB_REPOSITORY_OWNER: architecture-it
   BUILD_CONFIGURATION: 'Release'
-  DIRECORY_SRC: 'lang/csharp/Integracion/Esquemas/Trazas' # working directory remplace {appname}
+  DIRECORY_SRC: 'lang/csharp/Integracion/Esquemas/Avro' # working directory remplace {appname}
   FILE_IDL: 'idl/EventosDeTraza.avdl' # archivo avdl remplace {Example}
   OUTPUT_DIRECTORY: 'bin/Release/'
 jobs:
