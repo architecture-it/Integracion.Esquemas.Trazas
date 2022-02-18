@@ -49,17 +49,17 @@ protocol EsquemasProtocol {
   }
 
   record GsinDeHojaDeRutaCreado{
-     Integracion.Esquemas.EventoDeNegocio evento;
+    Integracion.Esquemas.EventoDeNegocio evento;
     string numero;
   }
 
   record GsinFinDeDistribucion{
-     Integracion.Esquemas.EventoDeNegocio evento;
-    union string numero;
+    Integracion.Esquemas.EventoDeNegocio evento;
+    string numero;
   }
 
   record HojaDeRutaDeDistribucionCreada{
-     Integracion.Esquemas.EventoDeNegocio evento;
+    Integracion.Esquemas.EventoDeNegocio evento;
     union { null, string } numeroDeHojaDeRuta;
     union { null, Integracion.Esquemas.Referencias.ListaDeObjetos } envios;
     union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor;
