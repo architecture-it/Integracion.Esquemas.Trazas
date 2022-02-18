@@ -118,6 +118,10 @@ protocol DatoDeReferenciaProtocol {
     union { null, GeoReferencia } coordenadas = null;
   }
 
+  record ListaDeObjetos{
+    union { null, array<string> } objetos;
+  }
+
   record FechaPactada{
     union { null, string } fecha=null;
     union { null, string } horaDesde=null;
@@ -162,6 +166,10 @@ protocol DatoDeReferenciaProtocol {
     union { null, string } login=null;
     union { null, string } idgla=null;
     union { null, string } cuit=null;
+  }
+
+  record ListaDePropiedades{
+    union {null, array<Metadato> } metadatos;
   }
 
   record DetalleDeEnvioInterno{

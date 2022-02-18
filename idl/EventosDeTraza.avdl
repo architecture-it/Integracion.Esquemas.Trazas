@@ -16,6 +16,19 @@ protocol EsquemasProtocol {
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
   }
 
+  @namespace("Integracion.Esquemas")
+  record EventoDeNegocio{
+    date timestamp;
+    string remitente;
+    string destinatario;
+    union { null, string } numeroDeOrden;
+    union { null, date } vencimiento;
+  }
+
+  record NovedadEnEnvio{
+    Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
+  }
+
   record Admision{
     Integracion.Esquemas.Traza traza;
     Integracion.Esquemas.Referencias.DatosSucursal donde;
@@ -31,12 +44,73 @@ protocol EsquemasProtocol {
     union { null, int } numeroDeBulto=null;
   }
 
+  record EnvioSeModificanDatos{
+    NovedadEnEnvio novedad;
+  }
+
+  record GsinDeHojaDeRutaCreado{
+     Integracion.Esquemas.EventoDeNegocio evento;
+    string numero;
+  }
+
+  record GsinFinDeDistribucion{
+     Integracion.Esquemas.EventoDeNegocio evento;
+    union string numero;
+  }
+
+  record HojaDeRutaDeDistribucionCreada{
+     Integracion.Esquemas.EventoDeNegocio evento;
+    union { null, string } numeroDeHojaDeRuta;
+    union { null, Integracion.Esquemas.Referencias.ListaDeObjetos } envios;
+    union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor;
+    union { null, Integracion.Esquemas.Referencias.ListaDePropiedades } linking;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } donde;
+  }
+
+  record AltaPorDevolucion{
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+    union { null, string } generadaPorNumeroDeEnvio;
+  }
+
+  record AltaPorRecanalizacion{
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+    union { null, string } generadaPorNumeroDeEnvio;
+  }
+
+  record NuevaFechaDeEntregaPactada{
+    Integracion.Esquemas.Traza traza;
+    union { null, string } nuevaFechaPactadaDesde;
+    union { null, string } nuevaFechaPactadaHasta;
+  }
+
   record ComienzoCustodiaEnSucursal{
     Integracion.Esquemas.Traza traza;
     int cantidadDeDiasDeLaFase;
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeCustodia=null;
+  }
+
+  record TrazaAltaDeEnvio{
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
+    Integracion.Esquemas.Referencias.Contrato contrato;
+    union { null, int } cantidadDeBultos;
+    union { null, string } agrupadorDeBult;
+    union { null, int } numeroDeBulto;
+  }
+
+  record RetiroProcesado{
+    Integracion.Esquemas.Traza traza;
+    union { null, string } nuevoNumeroDeEnvio;
+  }
+
+  record RemitoDigitalizado{
+    Integracion.Esquemas.Traza traza;
+    union { null, string } urlDocumento;
+    union { null, string } mimeType;
   }
 
   record EliminarMarcaDeRescate{
