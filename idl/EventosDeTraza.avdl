@@ -16,13 +16,15 @@ protocol EsquemasProtocol {
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
   }
 
-  @namespace("Integracion.Esquemas")
-  record EventoDeNegocio{
-    date timestamp;
-    string remitente;
-    string destinatario;
-    union { null, string } numeroDeOrden;
-    union { null, date } vencimiento;
+  @namespace("Integracion.Esquemas.Respuestas")
+  record Respuesta {
+    string fecha;
+    string respondeA;
+    string comentario;
+    string idNovedad;
+    string numeroDeOrden;
+    union { null, boolean } cierraPregunta;
+    union { null, boolean } esParaCliente;
   }
 
   record NovedadEnEnvio{
@@ -49,17 +51,14 @@ protocol EsquemasProtocol {
   }
 
   record GsinDeHojaDeRutaCreado{
-    Integracion.Esquemas.EventoDeNegocio evento;
     string numero;
   }
 
   record GsinFinDeDistribucion{
-    Integracion.Esquemas.EventoDeNegocio evento;
     string numero;
   }
 
   record HojaDeRutaDeDistribucionCreada{
-    Integracion.Esquemas.EventoDeNegocio evento;
     union { null, string } numeroDeHojaDeRuta;
     union { null, Integracion.Esquemas.Referencias.ListaDeObjetos } envios;
     union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor;
