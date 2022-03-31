@@ -27,6 +27,24 @@ protocol EsquemasProtocol {
     union { null, boolean } esParaCliente;
   }
 
+  @namespace("Integracion.Esquemas.Preguntas")
+  record Pregunta {
+    string fecha;
+    string comentario;
+    string idNovedad;
+    string numeroDeOrden;
+    string posiblesRespuestas;
+    union { null, boolean } esParaCliente;
+  }
+
+  @namespace("Integracion.Esquemas.Incidencias")
+  record EventoDeRespuesta{
+    Integracion.Esquemas.Traza traza;
+    string esRespuestaDe;
+    string motivo;
+    string submotivo;
+  }
+
   record NovedadEnEnvio{
     Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
   }
