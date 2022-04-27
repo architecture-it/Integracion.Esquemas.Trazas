@@ -277,7 +277,7 @@ protocol EsquemasProtocol {
 
   record Distribucion{
     Integracion.Esquemas.Traza traza;    
-    Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
+    union { null, Integracion.Esquemas.Referencias.DetalleDeEnvio } envio=null;
     string hojaDeRuta;
     union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor=null;
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } desdeDonde=null;
