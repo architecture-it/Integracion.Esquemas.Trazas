@@ -33,7 +33,7 @@ jobs:
           architecture: x64 # (x64 or x86) - defaults to x64
       - name: Get Avro Tools
         #run: wget --quiet $AVRO_MIRROR/avro-$AVRO_VERSION/java/avro-tools-$AVRO_VERSION.jar
-        run: wget --quiet https://apache.zero.com.ar/avro/avro-1.10.2/java/avro-tools-1.10.2.jar
+        run: wget  http://archive.apache.org/dist/avro/avro-1.11.0/java/avro-tools-1.11.0.jar
       - name: Get Avro Gen
         run: dotnet tool install Apache.Avro.Tools --version $AVRO_VERSION --global
       - name: Generate Protocol
