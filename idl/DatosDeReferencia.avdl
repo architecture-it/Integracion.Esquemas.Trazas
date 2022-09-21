@@ -83,10 +83,16 @@ protocol DatoDeReferenciaProtocol {
     union { null, FechaPactada } fechaPactadaDeEntrega=null;
     union { null, string } productoAEntregar=null;
     union { null, string } productoARetirar=null;
-    TipoPagoDestino pagoDestino;
+    union { null, TipoPagoDestino } pagoDestino=null;
     union { null, DatosSucursal } sucursalDeDistribucion=null;
     union { null, string } sucursalCliente=null;
-    union { null, array<DetalleDePaquete> } paquetes=null;   
+    union { null, array<DetalleDePaquete> } listaDePaquetes=null;  
+    union { null, string } codigoVerificadorDeEntrega=null;
+    union { null, int } cantidadDeBultos=null;
+    union { null, string } agrupadorDeBulto=null;
+    union { null, int } idPedido=null;
+    union { null, DatosPagoEnMostrador } pagoEnMostrador=null;
+
   }
   record DetalleDePaquete{
     union { null, float } pesoEnKg=null;
@@ -98,6 +104,8 @@ protocol DatoDeReferenciaProtocol {
     union { null, float } volumenEnCm3=null;
     union { null, float } valorDeclaradoSinImpuesto=null;
     union { null, float } valorDeclaradoConImpuesto=null;
+    union { null, int } numeroDeBulto=null;
+    union { null, float } valorDeclarado=null;
   }
 
   record Direccion{
@@ -187,6 +195,12 @@ protocol DatoDeReferenciaProtocol {
   record DetalleDelCobro{
     FormaDeCobro formaDeCobro;
     double importe;
+  }
+
+  record DatosPagoEnMostrador{
+    int montoACobrar;
+    string documentoTipo;
+    string documentoNumero;
   }
 
 
