@@ -1,4 +1,4 @@
-@namespace("Integracion.Esquemas.Referencias") 
+@namespace("Integracion.Esquemas.Referencias")
 protocol DatoDeReferenciaProtocol {
   record Contrato{     
     string codigoDeContratoInterno;
