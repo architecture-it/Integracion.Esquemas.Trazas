@@ -7,7 +7,7 @@ on:
       - 'idl/**'
 env:
   AVRO_VERSION: 1.11.0
-  AVRO_MIRROR: http://archive.apache.org/dist
+  AVRO_MIRROR:  http://archive.apache.org/dist/avro/
   GITHUB_REPOSITORY_OWNER: architecture-it
   BUILD_CONFIGURATION: 'Release'
   DIRECORY_SRC: 'lang/csharp/Integracion/Esquemas' # working directory remplace {appname}
