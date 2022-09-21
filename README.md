@@ -12,7 +12,7 @@ Este repositorio contienen:
 Los esquemas Avro son generados para poder ser incorporados en la [registry](https://www.apicur.io/registry/) que utilizaremos como fuente de validacion de los mensajes que publicaremos en los topicos de Kafka.
 
 ## Como se generan los schemas Avro?
-
+ 
 Los esquemas Avro que son incorporados a la registry se generan a partir de los archivos `.avdl`que se encuentran en la carpeta `./idl`, estos archivos de protocolo estan escritos en un lenguaje de alto nivel llamado `idl` que sirve para crear schemas Avro en formato `json`.
 Aqui se puede ver un ejemplo de como queda un schema declarado en idl.
 
