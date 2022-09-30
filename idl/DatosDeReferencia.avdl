@@ -1,4 +1,4 @@
-@namespace("Integracion.Esquemas.Referencias") 
+@namespace("Integracion.Esquemas.Referencias")
 protocol DatoDeReferenciaProtocol {
   record Contrato{     
     string codigoDeContratoInterno;
@@ -69,7 +69,7 @@ protocol DatoDeReferenciaProtocol {
     string numeroDeEnvio;
     union { null, DatosPersonales }	remitenteInformado=null;
     DatosPersonales destinatarioInformado;
-	  union { null, DatosPersonales } destinatarioAlternativo=null;
+	  union { null, array<DatosPersonales> } destinatarioAlternativos=null;
     LugarDeRetiroEntrega destinoInformado;
     union { null, LugarDeRetiroEntrega } origenInformado=null;
     string codigoDeContratoInterno;
@@ -90,7 +90,7 @@ protocol DatoDeReferenciaProtocol {
     union { null, string } codigoVerificadorDeEntrega=null;
     union { null, int } cantidadDeBultos=null;
     union { null, string } agrupadorDeBulto=null;
-    union { null, int } idPedido=null;
+    union { null, string } idPedido=null; 
     union { null, DatosPagoEnMostrador } pagoEnMostrador=null;
 
   }
