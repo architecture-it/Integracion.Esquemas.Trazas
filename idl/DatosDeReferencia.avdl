@@ -91,9 +91,8 @@ protocol DatoDeReferenciaProtocol {
     union { null, int } cantidadDeBultos=null;
     union { null, string } agrupadorDeBulto=null;
     union { null, string } idPedido=null; 
-    union { null, DatosPagoEnMostrador } pagoEnMostrador=null;
-
   }
+
   record DetalleDePaquete{
     union { null, float } pesoEnKg=null;
     union { null, float } altoEnCm=null;
@@ -196,13 +195,6 @@ protocol DatoDeReferenciaProtocol {
     FormaDeCobro formaDeCobro;
     double importe;
   }
-
-  record DatosPagoEnMostrador{
-    int montoACobrar;
-    string documentoTipo;
-    string documentoNumero;
-  }
-
 
   enum TipoDeDocumento{
     undefined,
