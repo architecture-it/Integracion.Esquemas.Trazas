@@ -51,4 +51,12 @@ jobs:
       - name: Nuget Push on Github
         run: dotnet nuget push --source github --api-key ${{ secrets.ARQUITECTURA_DEPLOY }} --skip-duplicate ${{ env.DIRECORY_SRC }}/${{ env.OUTPUT_DIRECTORY }}*.nupkg
         working-directory: ${{ env.DIRECTORY_SRC }}
-
+  Golang: # publica las structs en integracion-schemas-event-go 
+    name: publish lib go
+    needs: [avro]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: architecture-it/actions@avro-go
+        with: 
+          app_name: ${{ env.GITHUB_PROJECT_OWNER }}
+          github_token: ${{ secrets.ARQUITECTURA_DEPLOY }}
