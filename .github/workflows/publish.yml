@@ -14,6 +14,12 @@ env:
   FILE_IDL: 'idl/EventosDeTraza.avdl' # archivo avdl remplace {Example}
   OUTPUT_DIRECTORY: 'bin/Release/'
 jobs:
+  avro: # genera los avro
+    runs-on: ubuntu-latest
+    steps:
+      - uses: architecture-it/actions@avro
+        with:
+          file_idl: ${{ env.SOURCE_EVENTS_FILE_IDL }}
   gen-nuget:
     name: "Generate Libs"
     runs-on: ubuntu-latest
