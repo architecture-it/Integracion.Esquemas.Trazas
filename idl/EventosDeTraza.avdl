@@ -12,7 +12,7 @@ protocol EsquemasProtocol {
     union { null, string } cicloDelEnvio=null;
     union { null, string } operador=null;
     union { null, string } estadoDeLaRendicion=null;
-    union { null, string } comentario=null;
+    union { null, string } comentario=null; 
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
   }
 
