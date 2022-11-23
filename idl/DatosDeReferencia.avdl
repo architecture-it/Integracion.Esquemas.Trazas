@@ -94,7 +94,7 @@ protocol DatoDeReferenciaProtocol {
   }
 
   record DetalleDePaquete{
-    union { null, float } pesoEnKg=null;
+    union { null, float } pesoEnKg=null; 
     union { null, float } altoEnCm=null;
     union { null, float } anchoEnCm=null;
     union { null, float } largoEnCm=null;
