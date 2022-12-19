@@ -64,19 +64,523 @@ protocol EsquemasProtocol {
     union { null, int } numeroDeBulto=null;
   }
 
+  record BloquearEnvio{
+    Integracion.Esquemas.Traza traza;
+  }
+  record CacInformaSituacionEnvio{
+    Integracion.Esquemas.Traza traza;
+  }
+  record CadenaDeFrioContieneDataLogger{
+    Integracion.Esquemas.Traza traza;
+  }
+  record CadenaDeFrioSinFrecuencia{
+    Integracion.Esquemas.Traza traza;
+  }
+  record CambioDeConservadora{
+    Integracion.Esquemas.Traza traza;
+  }
+  record CapacidadOperativaExcedida{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ClienteDifiereFechaEntrega{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ClienteInformaCambioDomicilio{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ClienteInformaNoEsProductoSolicitado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ClienteInformaSinCheques{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ClienteRetieneDocumentacionYMercaderia{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ClienteSolicitaRepactarVisita{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ConformacionDiferida{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ConformacionEntregado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ConformacionObservada{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ContenidoRotoEnEmpaqueSano{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ContingenciaEnSistemas{
+    Integracion.Esquemas.Traza traza;
+  }
+  record DestinatarioNoAbonaGestionCobranza{
+    Integracion.Esquemas.Traza traza;
+  }
+  record DevolucionEntregadaSinDocumentacion{
+    Integracion.Esquemas.Traza traza;
+  }
+  record DevolucionEnvioPlazoVencido{
+    Integracion.Esquemas.Traza traza;
+  }
+  record DevolucionEnvioRecibidaPlazaInterior{
+    Integracion.Esquemas.Traza traza;
+  }
+  record DevolucionParcialCortoVto{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EntregaPactadaEnReparto{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioActivacionPendienteEnCAC{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioAnulado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioAnuladoEnOrigen{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioCompletoLiberado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConContingenciaSanitaria{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConDocumentacionFaltante{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConEntegaParcial{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConEntegaUrgente{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConEntregaObservada{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConErrorConformacion{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConGestionActivacionCAC{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConGestionCACCliente{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConGestionCACOperacion{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConGestionTelefonica{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConMercaderiaDecomisada{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConMercaderiaSecuetradaAduana{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConReconformacionDeDocumentacion{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConSolicitudDeRetorno{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioConTurnoConvenido{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioDeMuestraMedica{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioEnAreaDevoluciones{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioEnCoordinacionEntregaCAC{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioEnCoordinacionTelefonicaCAC{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioEnProcesoExpedicion{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioEnServicioDeCoordinacionDeEntrega{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioEntregadoPendienteConfirmarCAC{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioEntregadoSePosdatadaGGCC{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioFacturadoSap{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioFueraGrilla{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioIngresaReacondicionamiento{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioLiberado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioPosdatado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioProcesadoEnSorter{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioRecomendado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioRemitenteSolicitaEstacionar{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioRendido{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioReprogramadoPorFeriado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioSaleReacondicionamiento{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioSeRetiraDeSucursal{
+    Integracion.Esquemas.Traza traza;
+  }
+  record EnvioSinTurnoDeSucursal{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ExcedeValorPoliza{
+    Integracion.Esquemas.Traza traza;
+  }
+  record FaltaDocumentacionIIBB{
+    Integracion.Esquemas.Traza traza;
+  }
+  record FaltanBultos{
+    Integracion.Esquemas.Traza traza;
+  }
+  record FaltanBultosYRemitos{
+    Integracion.Esquemas.Traza traza;
+  }
+  record FaltaOrdenDeCompra{
+    Integracion.Esquemas.Traza traza;
+  }
+  record FaltaRemito{
+    Integracion.Esquemas.Traza traza;
+  }
+  record FeriadoLocal{
+    Integracion.Esquemas.Traza traza;
+  }
+  record FueraDeHorarioDeRecepcion{
+    Integracion.Esquemas.Traza traza;
+  }
+  record FueraDeHorarioDeTransmision{
+    Integracion.Esquemas.Traza traza;
+  }
+  record GestionCobranzaAnulada{
+    Integracion.Esquemas.Traza traza;
+  }
+  record GestionCobranzaImporteModificado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record GestionCobranzaReembolsoCobrado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record GestionCobranzaReembolsoNoCobrado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record IngresoDeConservadoraACamara{
+    Integracion.Esquemas.Traza traza;
+  }
+  record InversionEnBultoCerrado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record MercaderiaAControlar{
+    Integracion.Esquemas.Traza traza;
+  }
+  record MercaderiaOEmpaqueEnMalEstado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record NoSonCondicionesPactadas{
+    Integracion.Esquemas.Traza traza;
+  }
+  record RectificacionDeMotivo{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ReembolsoCobradoParcial{
+    Integracion.Esquemas.Traza traza;
+  }
+  record RemitenteSolicitaRetenerMercaderia{
+    Integracion.Esquemas.Traza traza;
+  }
+  record RemitoDemorado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record RemitoDigitalizadoEnProveedor{
+    Integracion.Esquemas.Traza traza;
+  }
+  record RemitoImpreso{
+    Integracion.Esquemas.Traza traza;
+  }
+  record RemitoSuspendido{
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaCadenaDeFrioSinFrecuencia{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaClienteInformaCambioDomicilio{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaClienteInformaNoEsProductoSolicitado{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaClienteInformaSinCheques{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaClienteSolicitaRepactarVisita{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaContenidoRotoEpaqueSano{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaDestinatarioNoAbonaGestionCobranza{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaDevolucionParcialCortoVto{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaDevolucionRecibidaPlazaInterior{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaEnvioConContingenciaSanitaria{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaEnvioConDocumentacionFaltante{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaEnvioConEntegaParcial{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaEnvioConGestionTelefonica{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaEnvioConSolicitudDeRetorno{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaEnvioEnCoordinacionEntregaCAC{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaEnvioSeRetiraDeSucursal{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaEnvioSinTurnoDeSucursal{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaFaltaDocumentacionIIBB{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaFaltanBultos{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaFaltanBultosYRemitos{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaFaltaOrdenDeCompra{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaFaltaRemito{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaFueraDeHorarioDeRecepcion{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaIngresoDeConservadoraACamara{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaInversionEnBultoCerrado{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaNoSonCondicionesPactadas{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaRoturaParcial{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaRoturaTotal{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaSePierdeTurnoDeEntrega{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaSinFrecuenciaDeViaje{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaSobranBultos{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaSobranBultosYRemitos{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaSobraRemito{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaSolicitudDeRetorno{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaUnidadesSobrantesBultosCerrados{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaVerificarDomicilio{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaVisita{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RespuestaZonaDeRiesgo{
+    Integracion.Esquemas.Respuestas.Respuesta respuesta;
+    Integracion.Esquemas.Traza traza;
+  }
+  record RetiroNoRealizado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record RetiroRechazado{
+    Integracion.Esquemas.Traza traza;
+  }
+  record RoturaDeUnidadDeTransporte{
+    Integracion.Esquemas.Traza traza;
+  }
+  record RoturaParcial{
+    Integracion.Esquemas.Traza traza;
+  }
+  record RoturaTotal{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SeDectectoDemoraOperativa{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SeDectectoDemoraViaje{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SeEnviaNotificacionADestinatario{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SePierdeTurnoDeEntrega{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SeProduceCasoFuerzaMayor{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SeProduceNovedadEnRuta{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SeProduceNovedadEnSucursal{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SeRealizoCierreConservadora{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SeRechazaChequeErrorConfeccion{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SeRechazaRemito{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SeReemplazaRefrigeranteConservadora{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SinFrecuenciaDeViaje{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SinStockParaDespachar{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SobranBultos{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SobranBultosYRemitos{
+    Integracion.Esquemas.Traza traza;
+  }
+  record SobraRemito{
+    Integracion.Esquemas.Traza traza;
+  }
+  record TrazabilidadFarmaConDiscrepancia{
+    Integracion.Esquemas.Traza traza;
+  }
+  record TrazabilidadFarmaEnGestion{
+    Integracion.Esquemas.Traza traza;
+  }
+  record UnidadDeTransporteDemorada{
+    Integracion.Esquemas.Traza traza;
+  }
+  record UnidadesFaltantesBultosCerrados{
+    Integracion.Esquemas.Traza traza;
+  }
+  record UnidadesSobrantesBultosCerrados{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ValoresRendidosAlRemitente{
+    Integracion.Esquemas.Traza traza;
+  }
+  record ZonaDeRiesgo{
+    Integracion.Esquemas.Traza traza;
+  }
+
   record EnvioSeModificanDatos{
     NovedadEnEnvio novedad;
   }
 
   record GsinDeHojaDeRutaCreado{
+     union { null, string } numeroDeOrden;
     string numero;
   }
 
   record GsinFinDeDistribucion{
+    union { null, string } numeroDeOrden;
     string numero;
   }
 
   record HojaDeRutaDeDistribucionCreada{
+    union { null, string } numeroDeOrden;
     union { null, string } numeroDeHojaDeRuta;
     union { null, Integracion.Esquemas.Referencias.ListaDeObjetos } envios;
     union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor;
