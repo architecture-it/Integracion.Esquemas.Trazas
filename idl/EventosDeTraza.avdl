@@ -580,7 +580,7 @@ protocol EsquemasProtocol {
   }
 
   record HojaDeRutaDeDistribucionCreada{
-    union { null, string } numeroDeOrden;
+    union { null, string } numeroDeOrden = null;
     union { null, string } numeroDeHojaDeRuta;
     union { null, Integracion.Esquemas.Referencias.ListaDeObjetos } envios;
     union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor;
