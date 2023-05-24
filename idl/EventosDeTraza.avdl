@@ -683,7 +683,7 @@ protocol EsquemasProtocol {
     string fajo;
     Integracion.Esquemas.Referencias.DatosSucursal sucursalActual;
     union { null, string } operador=null;
-    union { null, string } fechaVencimiento=null;
+    union { null, string } ultimoDiaDeCustodia=null;
   }
 
   record CambioDeDestino{
