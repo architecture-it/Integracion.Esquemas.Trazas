@@ -999,4 +999,12 @@ protocol EsquemasProtocol {
     Request,
     Avro
   }
+
+  record GestionCobranzaV2{
+    Integracion.Esquemas.Traza traza;  
+    double importe;
+    string canal;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+    array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;    
+  }
 }

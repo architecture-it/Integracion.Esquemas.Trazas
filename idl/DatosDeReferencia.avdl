@@ -229,5 +229,54 @@ protocol DatoDeReferenciaProtocol {
     boletaDeDeposito,
     siniestroPerdido,
     efectivo    
-    }
+  }
+  
+  record ComponenteDeCobro{
+     FormaDeCobroV2 forma;
+     union { null, Banco } banco=null;
+     double monto;
+     union { null, string } numeroDocumento=null;
+     union { null, string} fecha=null;  
+  }
+
+  enum FormaDeCobroV2{
+    chequeDeTerceros,
+    boletaDeDepositoEnCtaCliente,
+    ajusteDeSaldo,
+    retencionesImpositivas,
+    chequeNominativo,
+    descuentoFinanciero,
+    notaCredito,
+    efectivo,
+    planillaRendicionExcCasa,
+    ajusteImporteAnterior,
+    notaCreditoPami,
+    notaCreditoAConfirmarDevolucion,
+    enviaDiferenciaEnProximaLiquidacion,
+    pagoEfectivoCobrado,
+    pagoEfectivoChequePropio,
+    comprobanteTransferenciaACliente,
+    impuestoAlCheque,
+    saldoAFavor,
+    agregaPagoOtraFactura,
+    enviadoEnLiquidacionAnterior
+    cartaCompromisoExcCasa,
+    visaDebitoCredito,
+    autorizacionAdjunta,
+    reciboOficialAndreani,
+    descuentoNotaAdjunta,
+    pagoFacilComprobante
+    chequeElectronico,
+    mercadoPago,
+    ajustePorPendiente,
+    cbu,
+    cajaUnificadaExcCasa,
+    notaCreditoFarma
+  }
+  
+  record Banco {
+    string id;
+    string descripcion;
+  }
+
 }
