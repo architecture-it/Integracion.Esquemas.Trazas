@@ -259,13 +259,13 @@ protocol DatoDeReferenciaProtocol {
     impuestoAlCheque,
     saldoAFavor,
     agregaPagoOtraFactura,
-    enviadoEnLiquidacionAnterior
+    enviadoEnLiquidacionAnterior,
     cartaCompromisoExcCasa,
     visaDebitoCredito,
     autorizacionAdjunta,
     reciboOficialAndreani,
     descuentoNotaAdjunta,
-    pagoFacilComprobante
+    pagoFacilComprobante,
     chequeElectronico,
     mercadoPago,
     ajustePorPendiente,
