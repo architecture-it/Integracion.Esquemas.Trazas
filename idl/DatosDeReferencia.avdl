@@ -249,12 +249,14 @@ protocol DatoDeReferenciaProtocol {
     notaCredito,
     efectivo,
     planillaRendicionExcCasa,
+    enviadoEnPManualAnteriormente,
     ajusteImporteAnterior,
     notaCreditoPami,
     notaCreditoAConfirmarDevolucion,
     enviaDiferenciaEnProximaLiquidacion,
     pagoEfectivoCobrado,
     pagoEfectivoChequePropio,
+    descuentoDevolucionMercaderia,
     comprobanteTransferenciaACliente,
     impuestoAlCheque,
     saldoAFavor,
@@ -270,8 +272,7 @@ protocol DatoDeReferenciaProtocol {
     mercadoPago,
     ajustePorPendiente,
     cbu,
-    cajaUnificadaExcCasa,
-    notaCreditoFarma
+    cajaUnificadaExcCasa
   }
   
   record Banco {
