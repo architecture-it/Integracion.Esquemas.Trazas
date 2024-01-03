@@ -1005,7 +1005,7 @@ protocol EsquemasProtocol {
     double importe;
     string canal;
     Integracion.Esquemas.Referencias.DatosSucursal donde;
-    array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;    
+    array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;
   }
 
   record RendicionDeValoresACentral{
@@ -1013,14 +1013,14 @@ protocol EsquemasProtocol {
     string numeroDeEnvio;  
     string numeroDeRendicion;
     string fecha;
-    Integracion.Esquemas.Referencias.ComponenteDeCobro componenteDeCobro;    
+    array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;
   }
 
   record RendicionDeValoresEnCentral{
     Integracion.Esquemas.Traza traza;
     string numeroDeEnvio;  
     string fecha;
-    Integracion.Esquemas.Referencias.ComponenteDeCobro componenteDeCobro;    
+    array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;  
   }
 
   record GeneracionTalonCliente{
@@ -1033,7 +1033,7 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Traza traza;
     string numeroDeEnvio;  
     string fecha;
-    Integracion.Esquemas.Referencias.ComponenteDeCobro componenteDeCobro;    
+    array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;  
   }
 
   record FacturaLiquidacionReembolsoCliente{
