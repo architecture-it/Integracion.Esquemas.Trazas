@@ -1007,4 +1007,88 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Referencias.DatosSucursal donde;
     array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;    
   }
+
+  record RendicionDeValoresACentral{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeEnvio;  
+    string numeroDeRendicion;
+    string fecha;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+    Integracion.Esquemas.Referencias.ComponenteDeCobro componenteDeCobro;    
+  }
+
+  record RendicionDeValoresEnCentral{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeEnvio;  
+    string fecha;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+    Integracion.Esquemas.Referencias.ComponenteDeCobro componenteDeCobro;    
+  }
+
+  record GeneracionTalonCliente{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeEnvio;  
+    string fecha;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
+
+  record ContabilizacionCobroReembolso{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeEnvio;  
+    string fecha;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+    Integracion.Esquemas.Referencias.ComponenteDeCobro componenteDeCobro;    
+  }
+
+  record FacturaLiquidacionReembolsoCliente{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeEnvio;  
+    string factura;
+    string fecha;
+    string motivo;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
+
+  record RendicionDeDocumentacionDigitalizada{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeEnvio; 
+    string referencia;  
+    string fecha;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
+
+  record RendicionDeDocumentacionACentral{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeEnvio; 
+    string referencia;  
+    string numeroDeRendicion;
+    string fecha;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
+
+  record RendicionDeDocumentacionACentral{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeEnvio;
+    string referencia;  
+    string numeroDeRendicion;
+    string fecha;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
+
+  record RendicionDeDocumentacionEnCentral{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeEnvio;
+    string referencia;
+    string fecha;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
+
+  record RendicionDeDocumentacionDevolucionACliente{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeEnvio;
+    string referencia;
+    string fecha;
+    string documentoDeEnvio;
+    Integracion.Esquemas.Referencias.DatosSucursal donde;
+  }
 }
