@@ -1008,7 +1008,7 @@ protocol EsquemasProtocol {
     array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;
   }
 
-  record RendicionDeValoresACentral{
+  record ReembolsoRendidoACentral{
     Integracion.Esquemas.Traza traza;
     string numeroDeEnvio;  
     string numeroDeRendicion;
@@ -1016,27 +1016,27 @@ protocol EsquemasProtocol {
     array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;
   }
 
-  record RendicionDeValoresEnCentral{
+  record ReembolsoRecibidoEnCentral{
     Integracion.Esquemas.Traza traza;
     string numeroDeEnvio;  
     string fecha;
     array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;  
   }
 
-  record GeneracionTalonCliente{
+  record SolicitudContabilizacionReembolso{
     Integracion.Esquemas.Traza traza;
     string numeroDeEnvio;  
     string fecha;
   }
 
-  record ContabilizacionCobroReembolso{
+  record RecepcionReembolsoEnCentral{
     Integracion.Esquemas.Traza traza;
     string numeroDeEnvio;  
     string fecha;
     array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;  
   }
 
-  record FacturaLiquidacionReembolsoCliente{
+  record DevolucionReembolsoAlCliente{
     Integracion.Esquemas.Traza traza;
     string numeroDeEnvio;  
     string factura;
@@ -1044,14 +1044,14 @@ protocol EsquemasProtocol {
     string motivo;
   }
 
-  record RendicionDeDocumentacionDigitalizada{
+  record RendicionRemitoDigitalizado{
     Integracion.Esquemas.Traza traza;
     string numeroDeEnvio; 
     string referencia;  
     string fecha;
   }
 
-  record RendicionDeDocumentacionACentral{
+  record RemitoRendidoACentral{
     Integracion.Esquemas.Traza traza;
     string numeroDeEnvio; 
     string referencia;  
@@ -1059,14 +1059,14 @@ protocol EsquemasProtocol {
     string fecha;
   }
 
-  record RendicionDeDocumentacionEnCentral{
+  record RemitoRecibidoEnCentral{
     Integracion.Esquemas.Traza traza;
     string numeroDeEnvio;
     string referencia;
     string fecha;
   }
 
-  record RendicionDeDocumentacionAlCliente{
+  record DevolucionRemitoAlCliente{
     Integracion.Esquemas.Traza traza;
     string numeroDeEnvio;
     string referencia;
