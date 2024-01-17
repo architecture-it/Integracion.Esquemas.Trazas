@@ -1073,4 +1073,15 @@ protocol EsquemasProtocol {
     string fecha;
     string numeroDeDocumento;
   }
+  
+  record EnvioAforado{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeEnvio;
+    double pesoEnGramos;
+    double volumenEnCm3;
+    double altoEnCm;
+    double largoEnCm;
+    double anchoEnCm;
+    string fechaProcesamiento; 
+  }
 }
