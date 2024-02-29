@@ -1082,6 +1082,7 @@ protocol EsquemasProtocol {
     double altoEnCm;
     double largoEnCm;
     double anchoEnCm;
-    string fechaProcesamiento; 
+    string fechaProcesamiento;
+    string keyBulto;
   }
 }
