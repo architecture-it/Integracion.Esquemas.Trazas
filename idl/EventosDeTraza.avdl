@@ -1085,4 +1085,24 @@ protocol EsquemasProtocol {
     string fechaProcesamiento;
     string keyBulto;
   }
+
+  record LlegadaUnidadDeTransporte{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeViaje;
+    string matricula;
+    Integracion.Esquemas.Referencias.ListaDeObjetos  envios;
+    Integracion.Esquemas.Referencias.DatosDistribuidor distribuidor;
+    Integracion.Esquemas.Referencias.DatosSucursal  donde;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalOrigen;
+  } 
+
+  record SalidaUnidadDeTransporte{
+    Integracion.Esquemas.Traza traza;
+    string numeroDeViaje;
+    string matricula;
+    Integracion.Esquemas.Referencias.ListaDeObjetos  envios;
+    Integracion.Esquemas.Referencias.DatosDistribuidor distribuidor;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal }   sucursalDestino;
+    Integracion.Esquemas.Referencias.DatosSucursal  desde;
+  }  
 }
