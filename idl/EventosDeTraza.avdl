@@ -1006,6 +1006,7 @@ protocol EsquemasProtocol {
     string canal;
     Integracion.Esquemas.Referencias.DatosSucursal donde;
     array<Integracion.Esquemas.Referencias.ComponenteDeCobro> componentesDeCobro;
+    union { null, string } referenciaDeCliente=null;
   }
 
   record ReembolsoRendidoACentral{
