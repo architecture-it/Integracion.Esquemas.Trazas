@@ -47,6 +47,7 @@ protocol DatoDeReferenciaProtocol {
     union { null, string } centroDeCostosDelCliente=null;
     string estado;
     string codigoDeContratoInterno;
+    union { null, string } codigoDeContrato=null;
     union { null, string } fechaInformeDeRendicion=null;
     union { null, string } fechaAltaEnvio=null;
     union { null, string } ordenDeCompraCliente=null;
@@ -74,6 +75,7 @@ protocol DatoDeReferenciaProtocol {
     LugarDeRetiroEntrega destinoInformado;
     union { null, LugarDeRetiroEntrega } origenInformado=null;
     string codigoDeContratoInterno;
+    union { null, string } codigoDeContrato=null;
     union { null, string } tipoDeServicio=null;
     union { null, string } numeroDeRemito=null;
     union { null, array<string> } remitosComplementarios=null;
