@@ -6,58 +6,25 @@ on:
     paths:
       - 'idl/**'
 env:
-  AVRO_VERSION: 1.11.0
-  AVRO_MIRROR:  http://archive.apache.org/dist/avro/
-  GITHUB_REPOSITORY_OWNER: architecture-it
-  GITHUB_PROJECT_OWNER: Trazas
-  BUILD_CONFIGURATION: 'Release'
-  DIRECORY_SRC: 'lang/csharp/Integracion/Esquemas' # working directory remplace {appname}
-  FILE_IDL: 'idl/EventosDeTraza.avdl' # archivo avdl remplace {Example}
-  OUTPUT_DIRECTORY: 'bin/Release/'
+  GITHUB_PROJECT_OWNER: Trazas # reemplace por su appname
+  SOURCE_EVENTS_FILE_IDL: 'idl/EventosDeTraza.avdl' # archivo avdl remplace {Example}
 jobs:
   avro: # genera los avro
     runs-on: ubuntu-latest
     steps:
       - uses: architecture-it/actions@avro
         with:
-          file_idl: ${{ env.FILE_IDL }}
-  gen-nuget:
-    name: "Generate Libs"
+          file_idl: ${{ env.SOURCE_EVENTS_FILE_IDL }}
+  Net: # publica la librería en nuget
+    name: publish lib net
+    needs: [avro]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 5.x
-      - uses: actions/setup-java@v1
-        with:
-          java-version: '11' # The JDK version to make available on the path.
-          java-package: jre # (jre, jdk, or jdk+fx) - defaults to jdk
-          architecture: x64 # (x64 or x86) - defaults to x64
-      - name: Get Avro Tools
-        run: wget --quiet ${{env.AVRO_MIRROR}}/avro-${{env.AVRO_VERSION}}/java/avro-tools-${{env.AVRO_VERSION}}.jar
-      - name: Get Avro Gen
-        run: dotnet tool install Apache.Avro.Tools --version $AVRO_VERSION --global
-      - name: Generate Protocol
-        run: java -jar avro-tools-$AVRO_VERSION.jar idl $FILE_IDL Schema.avpr 
-      - name: AvroGen
-        run: avrogen -p Schema.avpr lang/csharp/
-      - name: Restore dependencies
-        run: dotnet restore
-        working-directory: ${{env.DIRECORY_SRC}}
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-        working-directory: ${{env.DIRECORY_SRC}}
-      - name: Pack
-        run: dotnet pack -p:PackageVersion=1.0.$GITHUB_RUN_NUMBER --no-build -c Release -o ${{ env.OUTPUT_DIRECTORY }}
-        working-directory: ${{env.DIRECORY_SRC}}
-      - name: Add NuGet sources
-        run: |
-          dotnet nuget add source https://nuget.pkg.github.com/${{ env.GITHUB_REPOSITORY_OWNER }}/index.json --name github
-      - name: Nuget Push on Github
-        run: dotnet nuget push --source github --api-key ${{ secrets.ARQUITECTURA_DEPLOY }} --skip-duplicate ${{ env.DIRECORY_SRC }}/${{ env.OUTPUT_DIRECTORY }}*.nupkg
-        working-directory: ${{ env.DIRECTORY_SRC }}
+      - uses: architecture-it/actions@avro-net
+        with: 
+          app_name: ${{ env.GITHUB_PROJECT_OWNER }}
+          github_token: ${{ secrets.ARQUITECTURA_DEPLOY }}
+          PackageVersion: 1.0.$GITHUB_RUN_NUMBER
   Golang: # publica las structs en integracion-schemas-event-go 
     name: publish lib go
     needs: [avro]
