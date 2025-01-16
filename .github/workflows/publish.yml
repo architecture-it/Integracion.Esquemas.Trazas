@@ -1,5 +1,6 @@
 name: Publish Avro
 on:
+  workflow_dispatch: # esto permite correr el flujo manualmente.
   push:
     branches:
       - main
