@@ -8,7 +8,7 @@ protocol EsquemasProtocol {
     union { null, string } nombre=null;
     timestamp_ms cuando;
     string codigoDeContratoInterno;
-    union { null, string} string codigoDeContrato=null;
+    union { null, string } codigoDeContrato=null;
     union { null, string } estadoDelEnvio=null;
     union { null, string } cicloDelEnvio=null;
     union { null, string } operador=null;
