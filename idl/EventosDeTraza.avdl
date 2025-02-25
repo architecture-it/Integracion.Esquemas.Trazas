@@ -15,7 +15,6 @@ protocol EsquemasProtocol {
     union { null, string } estadoDeLaRendicion=null;
     union { null, string } comentario=null; 
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
-    union { null, string } LogisticShipmentType=null; 
   }
 
   @namespace("Integracion.Esquemas.Respuestas")
