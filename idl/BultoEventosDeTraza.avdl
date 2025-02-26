@@ -11,7 +11,7 @@ protocol EsquemasProtocol {
   @aliases(["AltaManual", "AltaAutomatica", "AltaRemota", "AltaConAnomalias", "AltaDeExcedente"])
   record Alta{
     Integracion.Esquemas.Bulto.Referencias.Traza traza;
-    Integracion.Esquemas.Referencias.Bulto.DetalleDelBulto bulto;
+    Integracion.Esquemas.Bulto.Referencias.DetalleDelBulto bulto;
     Integracion.Esquemas.Referencias.Contrato contrato;
   }
   record CadenaDeFrioContieneDataLogger{
@@ -188,7 +188,7 @@ protocol EsquemasProtocol {
 
   record Distribucion{
     Integracion.Esquemas.Bulto.Referencias.Traza traza;    
-    union { null, Integracion.Esquemas.Referencias.Bulto.DetalleDelBulto } bulto=null;
+    union { null, Integracion.Esquemas.Bulto.Referencias.DetalleDelBulto } bulto=null;
     string hojaDeRuta;
     union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor=null;
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } desdeDonde=null;
