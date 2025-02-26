@@ -1,0 +1,40 @@
+@namespace("Integracion.Esquemas.Bulto.Referencias")
+protocol DatoDeReferenciaProtocol {
+   record Traza{
+    string codigoDeEnvio;
+    string numeroDeBulto;
+    union { null, string } nombre=null;
+    timestamp_ms cuando;
+    string codigoDeContratoInterno;
+    union { null, string } codigoDeContrato=null;
+    union { null, string } estadoDelEnvio=null;
+    union { null, string } cicloDelEnvio=null;
+    union { null, string } operador=null;
+    union { null, string } estadoDeLaRendicion=null;
+    union { null, string } comentario=null; 
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
+    union { null, TipoDeBulto} tipoDeBulto=null;
+  }
+
+  record DetalleDelBulto{
+    union { null, float } pesoEnKg=null; 
+    union { null, float } altoEnCm=null;
+    union { null, float } anchoEnCm=null;
+    union { null, float } largoEnCm=null;
+    union { null, string } descripcion=null;
+    union { null, map<string> }	referenciasDelCliente=null;
+    union { null, float } volumenEnCm3=null;
+    union { null, float } valorDeclaradoSinImpuesto=null;
+    union { null, float } valorDeclaradoConImpuesto=null;
+    union { null, int } numeroDeBulto=null;
+    union { null, float } valorDeclarado=null;
+  }
+  enum TipoDeBulto{
+    Paquete,
+    Contenedor
+  }
+  enum TipoDeAforo{
+    AforoAutomatico,
+    AforoManual
+  } 
+}

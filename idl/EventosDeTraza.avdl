@@ -1,6 +1,7 @@
 @namespace("Integracion.Esquemas.Trazas")
 protocol EsquemasProtocol {
   import idl "DatosDeReferencia.avdl";
+  import idl "BultoEventosDeTraza.avdl";
 
   @namespace("Integracion.Esquemas")
   record Traza{
