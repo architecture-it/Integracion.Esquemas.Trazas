@@ -232,7 +232,7 @@ protocol EsquemasProtocol {
     double pesoDeExceso;
   }
   record BultoRecanalizado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+    v.Traza traza;  
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } nuevaSucursalDeDistribucion=null;
   }
 
@@ -286,7 +286,7 @@ protocol EsquemasProtocol {
     double largoEnCm;
     double anchoEnCm;
     string fechaProcesamiento;
-    Integracion.Esquemas.bulto.Referencias.TipoDeAforo tipoDeAforo;
+    Integracion.Esquemas.Bulto.Referencias.TipoDeAforo tipoDeAforo;
     union {null, string} identificadorDeMaquina=null;
   }
 
