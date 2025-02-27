@@ -1,7 +1,7 @@
 @namespace("Integracion.Esquemas.Bulto.Referencias")
 protocol DatoDeReferenciaProtocol {
   import idl "DatosDeReferencia.avdl";
-  record Traza{
+  record TrazaDeBulto{
     string codigoDeEnvio;
     string numeroDeBulto;
     union { null, string } nombre=null;
