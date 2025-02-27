@@ -232,7 +232,7 @@ protocol EsquemasProtocol {
     double pesoDeExceso;
   }
   record BultoRecanalizado{
-    v.Traza traza;  
+    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } nuevaSucursalDeDistribucion=null;
   }
 
