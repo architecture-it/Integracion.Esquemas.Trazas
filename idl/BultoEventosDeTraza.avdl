@@ -3,141 +3,141 @@ protocol EsquemasProtocol {
   import idl "DatosDeReferencia.avdl";
   import idl "BultoDatosDeReferencia.avdl";
 
-  record Admision{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoAdmision{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
     Integracion.Esquemas.Referencias.DatosSucursal donde;
   }
 
   @aliases(["AltaManual", "AltaAutomatica", "AltaRemota", "AltaConAnomalias", "AltaDeExcedente"])
-  record Alta{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoAlta{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
     Integracion.Esquemas.Bulto.Referencias.DetalleDelBulto bulto;
     Integracion.Esquemas.Referencias.Contrato contrato;
   }
-  record CadenaDeFrioContieneDataLogger{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoCadenaDeFrioContieneDataLogger{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record CadenaDeFrioSinFrecuencia{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoCadenaDeFrioSinFrecuencia{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record CambioDeConservadora{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoCambioDeConservadora{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record CapacidadOperativaExcedida{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoCapacidadOperativaExcedida{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record ClienteDifiereFechaEntrega{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoClienteDifiereFechaEntrega{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record ConformacionDiferida{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoConformacionDiferida{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record ConformacionEntregado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoConformacionEntregado{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record ConformacionObservada{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoConformacionObservada{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record ContenidoRotoEnEmpaqueSano{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoContenidoRotoEnEmpaqueSano{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record ContingenciaEnSistemas{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoContingenciaEnSistemas{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record EntregaPactadaEnReparto{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoEntregaPactadaEnReparto{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
   record BultoConContingenciaSanitaria{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
   record BultoConDocumentacionFaltante{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
   record BultoEnProcesoExpedicion{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
   record BultoIngresaReacondicionamiento{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
   record BultoLiberado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
   record BultoPosdatado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
   record BultoProcesadoEnSorter{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
   record BultoSaleReacondicionamiento{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record ExcedeValorPoliza{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoExcedeValorPoliza{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record IngresoDeConservadoraACamara{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoIngresoDeConservadoraACamara{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record InversionEnBultoCerrado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoInversionEnBultoCerrado{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record MercaderiaAControlar{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoMercaderiaAControlar{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record MercaderiaOEmpaqueEnMalEstado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoMercaderiaOEmpaqueEnMalEstado{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record RoturaParcial{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoRoturaParcial{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record RoturaTotal{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoRoturaTotal{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record TrazabilidadFarmaConDiscrepancia{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoTrazabilidadFarmaConDiscrepancia{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record UnidadDeTransporteDemorada{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoUnidadDeTransporteDemorada{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record UnidadesFaltantesBultosCerrados{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoUnidadesFaltantesBultosCerrados{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
-  record UnidadesSobrantesBultosCerrados{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoUnidadesSobrantesBultosCerrados{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
 
-  record AltaPorDevolucion{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoAltaPorDevolucion{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
     Integracion.Esquemas.Referencias.DatosSucursal donde;
     union { null, string } generadaPorNumeroDeEnvio;
   }
 
-  record AltaPorRecanalizacion{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoAltaPorRecanalizacion{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
     Integracion.Esquemas.Referencias.DatosSucursal donde;
     union { null, string } generadaPorNumeroDeEnvio;
   }
 
-  record EliminarMarcaDeRescate{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoEliminarMarcaDeRescate{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
 
   record BultoEntregado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
     Integracion.Esquemas.Referencias.TipoDeEntrega tipoDeEntrega;
   }
   record BultoNoEntregado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
     union { null, string } reemplazadoPorNumeroDeEnvio=null;
   }
-  record Rescate{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoRescate{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
     union { null, string } numeroDeInformeDeRendicion=null;
   }
 
-  record CambioDeDestino{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoCambioDeDestino{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
     Integracion.Esquemas.Referencias.LugarDeRetiroEntrega nuevoDestino;
     Integracion.Esquemas.Referencias.LugarDeRetiroEntrega nuevaSucursal;
     boolean esSolicitadoPorCliente;
@@ -145,118 +145,118 @@ protocol EsquemasProtocol {
     union { null, string } submotivo=null;
     union { null, string } observaciones=null;
   }
-  record CierreDeEntidad{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+  record BultoCierreDeEntidad{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
     union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
   }
 
-  record EliminarMarcaDeDestruccion{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+  record BultoEliminarMarcaDeDestruccion{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
   }
 
   record BultoAnulado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     union { null, string } quienAnulo=null;
   }
 
   record BultoConsolidado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     string codigoDeContenedor;
   }
 
-  record Siniestro{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+  record BultoSiniestro{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     string numeroDeEnvioDelCliente;
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
   }
 
   record BultoActualizado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
 
-  record PedidoDeDestruccion{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoPedidoDeDestruccion{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
     Integracion.Esquemas.Referencias.DatosSucursal sucursalDeDestruccion;
   }
 
-  record Destruccion{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoDestruccion{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
 
-  record Distribucion{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;    
+  record BultoDistribucion{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;    
     union { null, Integracion.Esquemas.Bulto.Referencias.DetalleDelBulto } bulto=null;
     string hojaDeRuta;
     union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor=null;
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } desdeDonde=null;
   }
 
-  record ExpedicionEnReparto{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;    
+  record BultoExpedicionEnReparto{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;    
   }
-  record VerificadoDeImagen{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;    
+  record BultoVerificadoDeImagen{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;    
     boolean esResultadoCorrecto;
   }
-  record RendicionLogica{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;   
+  record BultoRendicionLogica{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;   
     boolean esAutomatica;
     boolean esEnBaseArchivo;
   }
 
-  record ExcedenteLogico{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;   
+  record BultoExcedenteLogico{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;   
   }
 
-  record IntroduccionDeMotivo{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;   
+  record BultoIntroduccionDeMotivo{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;   
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
   }
 
-  record NovedadConEnvioEnCourier{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+  record BultoNovedadConEnvioEnCourier{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     string queNovedad;
     string courier;
     union { null, string } resultado=null;
     union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
   }
 
-  record ExcesoDePeso{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+  record BultoExcesoDePeso{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     Integracion.Esquemas.Referencias.DatosSucursal sucursalMoviento;
     double pesoContratado;
     double pesoDeExceso;
   }
   record BultoRecanalizado{
-    v.Traza traza;  
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } nuevaSucursalDeDistribucion=null;
   }
 
-  record RecepcionEnSucursalDestino{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+  record BultoRecepcionEnSucursalDestino{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
   }
 
-  record SolicitudDeRescate{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+  record BultoSolicitudDeRescate{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     boolean esInterno;
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDondeSeRescata=null;
   }
 
-  record ExpedicionHojaDeRutaCabecera{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+  record BultoExpedicionHojaDeRutaCabecera{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalQueExpide=null;
     union { null, string } medioDeExpedicion=null;
   }
 
-  record ExpedicionHojaDeRutaDeViaje{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+  record BultoExpedicionHojaDeRutaDeViaje{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
     string hojaDeRuta;
     union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor=null;
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalQueExpide=null;
@@ -264,8 +264,8 @@ protocol EsquemasProtocol {
     union { null, string } medioDeExpedicion=null;
   }
 
-  record Visita{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+  record BultoVisita{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
     union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor=null;
@@ -273,13 +273,13 @@ protocol EsquemasProtocol {
     union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
   }
 
-  record RecepcionLogica{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;  
+  record BultoRecepcionLogica{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;    
   }
 
   record BultoAforado{
-    Integracion.Esquemas.Bulto.Referencias.Traza traza;
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
     double pesoEnGramos;
     double volumenEnCm3;
     double altoEnCm;
