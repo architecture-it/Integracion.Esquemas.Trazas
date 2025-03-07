@@ -608,6 +608,11 @@ protocol EsquemasProtocol {
     union { null, string } nuevaFechaPactadaHasta;
   }
 
+  record NuevaFechaDeEntregaRepactada{
+    Integracion.Esquemas.Traza traza;
+    union { null, string } nuevaFechaPactadaDesde;
+    union { null, string } nuevaFechaPactadaHasta;
+  }
   record ComienzoCustodiaEnSucursal{
     Integracion.Esquemas.Traza traza;
     int cantidadDeDiasDeLaFase;
