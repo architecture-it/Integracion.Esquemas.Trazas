@@ -273,6 +273,15 @@ protocol EsquemasProtocol {
     union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
   }
 
+  record BultoEntregaPorMostrador{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza; 
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+    union { null, string } observaciones=null;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
+  }
+  
+
   record BultoRecepcionLogica{
     Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;    

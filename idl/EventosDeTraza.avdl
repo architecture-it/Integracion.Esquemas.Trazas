@@ -985,6 +985,14 @@ protocol EsquemasProtocol {
     union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
   }
 
+  record EntregaPorMostrador{
+    Integracion.Esquemas.Traza traza;  
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+    union { null, string } observaciones=null;
+    union { null, array<Integracion.Esquemas.Referencias.Metadato> } datosAdicionales=null;
+  }
+  
   record RecepcionLogica{
     Integracion.Esquemas.Traza traza;  
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;    
