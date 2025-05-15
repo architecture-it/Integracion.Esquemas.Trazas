@@ -309,9 +309,6 @@ protocol EsquemasProtocol {
   record NoSonCondicionesPactadas{
     Integracion.Esquemas.Traza traza;
   }
-  record RectificacionDeMotivo{
-    Integracion.Esquemas.Traza traza;
-  }
   record ReembolsoCobradoParcial{
     Integracion.Esquemas.Traza traza;
   }
@@ -762,6 +759,7 @@ protocol EsquemasProtocol {
 
   record EnvioActualizado{
     Integracion.Esquemas.Traza traza;
+    union { null, array<Integracion.Esquemas.Referencias.ActualizacionDeContenido> } contenidoActualizado=null;
   }
 
   record EnvioConDocumentacionErronea{
@@ -933,6 +931,14 @@ protocol EsquemasProtocol {
     union { null, string } motivo=null;
     union { null, string } submotivo=null;
   }
+  
+  record RectificacionDeFechaDeEntrega{
+    Integracion.Esquemas.Traza traza;  
+    timestamp_ms fechaRectificada;
+    union { null, timestamp_ms }  fechaOriginal = null;
+    union { null, string } motivo=null;
+  }
+
 
   record SolicitudDeRescate{
     Integracion.Esquemas.Traza traza;  

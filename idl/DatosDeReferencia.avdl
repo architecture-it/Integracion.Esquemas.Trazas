@@ -182,6 +182,12 @@ protocol DatoDeReferenciaProtocol {
     union {null, array<Metadato> } metadatos;
   }
 
+  record ActualizacionDeContenido{
+    string propiedad;
+    union { null, string } valor = null;
+    union { null, string } valorPrevio = null;
+  }
+
   record DetalleDeEnvioInterno{
     union { null, string } codigoDeEnvio=null;
     union { null, string } fechaDeAlta=null;
