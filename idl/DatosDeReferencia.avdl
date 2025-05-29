@@ -182,7 +182,7 @@ protocol DatoDeReferenciaProtocol {
     union {null, array<Metadato> } metadatos;
   }
 
-  record ActualizacionDeContenido{
+  record ModificacionDeContenido{
     string propiedad;
     union { null, string } valor = null;
     union { null, string } valorPrevio = null;
