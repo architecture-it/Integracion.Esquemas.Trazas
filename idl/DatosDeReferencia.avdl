@@ -94,6 +94,7 @@ protocol DatoDeReferenciaProtocol {
     union { null, int } cantidadDeBultos=null;
     union { null, string } agrupadorDeBulto=null;
     union { null, string } idPedido=null;
+    union { null, DatosSucursal } unidadOperativaDeOrigen=null;
   }
 
   record DetalleDePaquete{
