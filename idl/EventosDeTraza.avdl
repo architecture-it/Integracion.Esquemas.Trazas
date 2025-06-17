@@ -534,6 +534,11 @@ protocol EsquemasProtocol {
   record SeReemplazaRefrigeranteConservadora{
     Integracion.Esquemas.Traza traza;
   }
+
+  record NotificacionConservadoraAVencer{
+    Integracion.Esquemas.Traza traza;
+  }
+
   record SinFrecuenciaDeViaje{
     Integracion.Esquemas.Traza traza;
   }
