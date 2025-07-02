@@ -934,6 +934,13 @@ protocol EsquemasProtocol {
     union { null, string } submotivo=null;
   }
 
+  record ActualizacionDeSucursalDistribucion{
+    Integracion.Esquemas.Traza traza;  
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAnterior=null;
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalNueva=null;
+    union { null, string } motivo=null;
+  }
+
   record RendicionConRemito{
     Integracion.Esquemas.Traza traza;  
   }
