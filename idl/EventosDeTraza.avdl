@@ -708,6 +708,7 @@ record OrdenDeEnvioRechazada {
     union { null, string } Solicitante;
     union { null, string } Comentario;
     union { null, string } Topic;
+    union { null, string } Razon;
     Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio datosDeLaOrden;
     union { null, map<string> } linking=null;
   }
