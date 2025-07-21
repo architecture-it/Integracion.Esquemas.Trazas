@@ -682,6 +682,37 @@ protocol EsquemasProtocol {
     union { null, map<string> } linking=null;
   }
 
+record OrdenDeEnvioSolicitada {
+    union { null, string } Remitente;
+    union { null, string } Destinatario;
+    union { null, string } NumeroDeOrden;
+    union { null, int } Vencimiento;
+    union { null, string } CodigoDeEnvio;
+    union { null, string } Cuando;
+    union { null, string } CodigoDeContratoInterno;
+    union { null, string } Solicitante;
+    union { null, string } Comentario;
+    union { null, string } Topic;
+    Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio datosDeLaOrden;
+    union { null, map<string> } linking=null;
+  }
+
+record OrdenDeEnvioRechazada {
+    union { null, string } Remitente;
+    union { null, string } Destinatario;
+    union { null, string } NumeroDeOrden;
+    union { null, int } Vencimiento;
+    union { null, string } CodigoDeEnvio;
+    union { null, string } Cuando;
+    union { null, string } CodigoDeContratoInterno;
+    union { null, string } Solicitante;
+    union { null, string } Comentario;
+    union { null, string } Topic;
+    Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio datosDeLaOrden;
+    union { null, map<string> } linking=null;
+  }
+
+
   record ReactivacionDeBolsin{
     Integracion.Esquemas.Traza traza;
     Integracion.Esquemas.Referencias.DatosSucursal sucursalOrigen;
