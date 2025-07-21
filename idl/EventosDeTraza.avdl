@@ -683,34 +683,32 @@ protocol EsquemasProtocol {
   }
 
 record OrdenDeEnvioSolicitada {
-    union { null, string } Remitente;
-    union { null, string } Destinatario;
-    union { null, string } NumeroDeOrden;
-    union { null, int } Vencimiento;
-    union { null, string } CodigoDeEnvio;
-    union { null, string } Cuando;
-    union { null, string } CodigoDeContratoInterno;
-    union { null, string } Solicitante;
-    union { null, string } Comentario;
-    union { null, string } Topic;
-    Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio datosDeLaOrden;
-    union { null, map<string> } linking=null;
+    union { null, string }Remitente = null;
+    union { null, string }Destinatario = null;
+    union { null, string }NumeroDeOrden = null;
+    union { null, date } Vencimiento = null;
+    union { null, string } CodigoDeEnvio = null;
+    union { null, string } Cuando = null;
+    union { null, string } CodigoDeContratoInterno = null;
+    union { null, string } Solicitante = null;
+    union { null, string } Comentario = null;
+    union { null, string } Topic = null; 
+    union {null, Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio} datosDeLaOrden = null;
   }
 
 record OrdenDeEnvioRechazada {
-    union { null, string } Remitente;
-    union { null, string } Destinatario;
-    union { null, string } NumeroDeOrden;
-    union { null, int } Vencimiento;
-    union { null, string } CodigoDeEnvio;
-    union { null, string } Cuando;
-    union { null, string } CodigoDeContratoInterno;
-    union { null, string } Solicitante;
-    union { null, string } Comentario;
-    union { null, string } Topic;
-    union { null, string } Razon;
-    Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio datosDeLaOrden;
-    union { null, map<string> } linking=null;
+    union { null, string } Remitente = null;
+    union { null, string } Destinatario = null;
+    union { null, string } NumeroDeOrden = null ;
+    union { null, date } Vencimiento = null;
+    union { null, string } CodigoDeEnvio = null;
+    union { null, string } Cuando = null;
+    union { null, string } CodigoDeContratoInterno = null;
+    union { null, string } Solicitante = null;
+    union { null, string } Comentario = null;
+    union { null, string } Topic = null; 
+    union { null, Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio} datosDeLaOrden = null;
+    union { null, string } Razon = null; 
   }
 
 
