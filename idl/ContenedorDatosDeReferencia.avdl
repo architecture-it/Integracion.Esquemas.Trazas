@@ -23,7 +23,7 @@ protocol DatoDeReferenciaProtocol {
     int cantidadDeBultos;
     int cantidadDeBultosLeidos;
     string totalizador;
-    union { null, Array<Bulto>} bultos=null;
+    union { null, array<Bulto>} bultos=null;
   }
 
   record Viaje {

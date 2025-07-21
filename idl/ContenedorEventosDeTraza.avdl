@@ -6,28 +6,28 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
     Integracion.Esquemas.Referencias.DatosSucursal origen;
     Integracion.Esquemas.Referencias.DatosSucursal destino;
-    union { null, Array<Integracion.Esquemas.Referencias.DatosSucursal> } destinos=null;
-    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Envio> } envios=null;
-    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
-    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
+    union { null, array<Integracion.Esquemas.Referencias.DatosSucursal> } destinos=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Envio> } envios=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
   }
   record ContenedorCerrado{
     Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
     Integracion.Esquemas.Referencias.DatosSucursal origen;
     Integracion.Esquemas.Referencias.DatosSucursal destino;
-    union { null, Array<Integracion.Esquemas.Referencias.DatosSucursal> } destinos=null;
-    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Envio> } envios=null;
-    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
-    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
+    union { null, array<Integracion.Esquemas.Referencias.DatosSucursal> } destinos=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Envio> } envios=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
   }
   record ContenedorModificado{
     Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
     Integracion.Esquemas.Referencias.DatosSucursal origen;
     Integracion.Esquemas.Referencias.DatosSucursal destino;
-    union { null, Array<Integracion.Esquemas.Referencias.DatosSucursal> } destinos=null;
-    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Envio> } envios=null;
-    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
-    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
+    union { null, array<Integracion.Esquemas.Referencias.DatosSucursal> } destinos=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Envio> } envios=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
   }
   record ContenedorExpedido{
     Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
