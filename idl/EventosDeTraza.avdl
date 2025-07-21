@@ -2,6 +2,7 @@
 protocol EsquemasProtocol {
   import idl "DatosDeReferencia.avdl";
   import idl "BultoEventosDeTraza.avdl";
+  import idl "ContenedorEventosDeTraza.avdl";
 
   @namespace("Integracion.Esquemas")
   record Traza{
@@ -681,36 +682,6 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio datosDeLaOrden;
     union { null, map<string> } linking=null;
   }
-
-record OrdenDeEnvioSolicitada {
-    union { null, string }Remitente = null;
-    union { null, string }Destinatario = null;
-    union { null, string }NumeroDeOrden = null;
-    union { null, date } Vencimiento = null;
-    union { null, string } CodigoDeEnvio = null;
-    union { null, string } Cuando = null;
-    union { null, string } CodigoDeContratoInterno = null;
-    union { null, string } Solicitante = null;
-    union { null, string } Comentario = null;
-    union { null, string } Topic = null; 
-    union { null, Andreani.AltaOrdenEnvio.Events.Common.DetalleDeOrdenDeEnvio} datosDeLaOrden = null;
-  }
-
-record OrdenDeEnvioRechazada {
-    union { null, string } Remitente = null;
-    union { null, string } Destinatario = null;
-    union { null, string } NumeroDeOrden = null ;
-    union { null, date } Vencimiento = null;
-    union { null, string } CodigoDeEnvio = null;
-    union { null, string } Cuando = null;
-    union { null, string } CodigoDeContratoInterno = null;
-    union { null, string } Solicitante = null;
-    union { null, string } Comentario = null;
-    union { null, string } Topic = null; 
-    union { null, Andreani.AltaOrdenEnvio.Events.Common.DetalleDeOrdenDeEnvio} datosDeLaOrden = null;
-    union { null, string } Razon = null; 
-  }
-
 
   record ReactivacionDeBolsin{
     Integracion.Esquemas.Traza traza;

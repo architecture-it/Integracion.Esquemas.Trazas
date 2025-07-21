@@ -1,0 +1,49 @@
+@namespace("Integracion.Esquemas.Contenedor.Trazas")
+protocol EsquemasProtocol {
+  import idl "DatosDeReferencia.avdl";
+  import idl "ContenedorDatosDeReferencia.avdl";
+  record ContenedorCreado{
+    Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
+    Integracion.Esquemas.Referencias.DatosSucursal origen;
+    Integracion.Esquemas.Referencias.DatosSucursal destino;
+    union { null, Array<Integracion.Esquemas.Referencias.DatosSucursal> } destinos=null;
+    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Envio> } envios=null;
+    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
+    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
+  }
+  record ContenedorCerrado{
+    Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
+    Integracion.Esquemas.Referencias.DatosSucursal origen;
+    Integracion.Esquemas.Referencias.DatosSucursal destino;
+    union { null, Array<Integracion.Esquemas.Referencias.DatosSucursal> } destinos=null;
+    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Envio> } envios=null;
+    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
+    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
+  }
+  record ContenedorModificado{
+    Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
+    Integracion.Esquemas.Referencias.DatosSucursal origen;
+    Integracion.Esquemas.Referencias.DatosSucursal destino;
+    union { null, Array<Integracion.Esquemas.Referencias.DatosSucursal> } destinos=null;
+    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Envio> } envios=null;
+    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
+    union { null, Array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
+  }
+  record ContenedorExpedido{
+    Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
+    Integracion.Esquemas.Referencias.DatosSucursal origen;
+    Integracion.Esquemas.Referencias.DatosSucursal destino;
+    Integracion.Esquemas.Contenedor.Referencias.Viaje viaje;
+  }
+  record ContenedorRecepcionado{
+    Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
+  }
+  record ContenedorDesconsolidado{
+    Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
+  }
+  record ContenedorSinestrado{
+    Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
+    union { null, string } motivo=null;
+    union { null, string } subMotivo=null;
+  }
+}
