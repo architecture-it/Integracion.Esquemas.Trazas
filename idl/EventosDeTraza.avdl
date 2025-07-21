@@ -693,7 +693,7 @@ record OrdenDeEnvioSolicitada {
     union { null, string } Solicitante = null;
     union { null, string } Comentario = null;
     union { null, string } Topic = null; 
-    union {null, Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio} datosDeLaOrden = null;
+    union { null, Andreani.AltaOrdenEnvio.Events.Common.DetalleDeOrdenDeEnvio} datosDeLaOrden = null;
   }
 
 record OrdenDeEnvioRechazada {
@@ -707,7 +707,7 @@ record OrdenDeEnvioRechazada {
     union { null, string } Solicitante = null;
     union { null, string } Comentario = null;
     union { null, string } Topic = null; 
-    union { null, Integracion.Esquemas.Referencias.DetalleDeOrdenDeEnvio} datosDeLaOrden = null;
+    union { null, Andreani.AltaOrdenEnvio.Events.Common.DetalleDeOrdenDeEnvio} datosDeLaOrden = null;
     union { null, string } Razon = null; 
   }
 
