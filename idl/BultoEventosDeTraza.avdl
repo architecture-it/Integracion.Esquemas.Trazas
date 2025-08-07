@@ -77,6 +77,12 @@ protocol EsquemasProtocol {
   record BultoIngresoDeConservadoraACamara{
     Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
+  record BultoSeRealizoCierreConservadora{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
+  }
+  record BultoSeReemplazaRefrigeranteConservadora{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
+  }
   record BultoInversionEnBultoCerrado{
     Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
