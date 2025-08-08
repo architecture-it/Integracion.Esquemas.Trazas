@@ -304,5 +304,12 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Bulto.Referencias.TipoDeAforo tipoDeAforo;
     union {null, string} identificadorDeMaquina=null;
   }
+  record BultoTransicionaDeCiclo{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
+    Integracion.Esquemas.Referencias.ModificacionDeContenido transicion;
+    Integracion.Esquemas.Referencias.Direccion direccion;
+    string motivo;
+    string subMotivo;
+  }
 
 }

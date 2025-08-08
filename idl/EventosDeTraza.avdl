@@ -1139,4 +1139,11 @@ protocol EsquemasProtocol {
     union { null, Integracion.Esquemas.Referencias.DatosSucursal }   sucursalDestino;
     Integracion.Esquemas.Referencias.DatosSucursal  desde;
   }  
+  record EnvioTransicionaDeCiclo{
+    Integracion.Esquemas.Traza traza;
+    Integracion.Esquemas.Referencias.ModificacionDeContenido transicion;
+    Integracion.Esquemas.Referencias.Direccion direccion;
+    string motivo;
+    string subMotivo;
+  }  
 }
