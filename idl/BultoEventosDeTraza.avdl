@@ -311,5 +311,8 @@ protocol EsquemasProtocol {
     string motivo;
     string subMotivo;
   }
+  record BultoRetenidoPorGendarmeria{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
+  }
 
 }

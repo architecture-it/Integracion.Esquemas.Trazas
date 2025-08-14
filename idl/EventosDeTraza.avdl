@@ -254,6 +254,9 @@ protocol EsquemasProtocol {
   record EnvioReprogramadoPorFeriado{
     Integracion.Esquemas.Traza traza;
   }
+  record EnvioRetenidoPorGendarmeria{
+    Integracion.Esquemas.Traza traza;
+  }
   record EnvioSaleReacondicionamiento{
     Integracion.Esquemas.Traza traza;
   }
