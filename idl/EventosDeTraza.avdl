@@ -672,6 +672,12 @@ protocol EsquemasProtocol {
     union { null, string } submotivo=null;
     union { null, string } reemplazadoPorNumeroDeEnvio=null;
   }
+  record EnvioEntregadoParcial{
+    Integracion.Esquemas.Traza traza;
+    union { null, array<string> } bultosEntregados=null;
+    int bultosTotales;
+    int bultosEntregadosTotales;
+  }
   record FinCustodiaEnSucursal{
     Integracion.Esquemas.Traza traza;
     int cantidadDeDias;
