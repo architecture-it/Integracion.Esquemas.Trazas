@@ -678,6 +678,10 @@ protocol EsquemasProtocol {
     int bultosTotales;
     int bultosEntregadosTotales;
   }
+  record EnvioEntregadoCompleto{
+    Integracion.Esquemas.Traza traza;
+  }
+  
   record FinCustodiaEnSucursal{
     Integracion.Esquemas.Traza traza;
     int cantidadDeDias;
