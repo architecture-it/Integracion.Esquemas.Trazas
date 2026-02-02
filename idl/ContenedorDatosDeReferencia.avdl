@@ -9,6 +9,7 @@ protocol DatoDeReferenciaProtocol {
     timestamp_ms cuando;
     union { null, string } operador=null;
     union { null, string } comentario=null; 
+    union { null, string } prefijo=null;
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
   }
 
@@ -35,5 +36,6 @@ protocol DatoDeReferenciaProtocol {
   record Documento {
     string numeroDeReferencia;
   }
+
 
 }
