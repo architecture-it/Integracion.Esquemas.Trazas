@@ -1,0 +1,30 @@
+@namespace("Integracion.Esquemas.Acciones")
+protocol AccionesProtocol{
+    import idl "DatosDeReferencia.avdl";
+    record MetadataEvento{
+        string codigoDeEnvio;
+        string numeroDeBulto;
+        string sistemaOrigen;
+        timestamp_ms cuando;
+        union { null, string } codigoDeContrato=null;
+        union { null, string } operador=null;
+        union { null, string } comentario=null; 
+        union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
+    }
+
+    record AdmitirBulto{
+        MetadataEvento metadata;
+    }
+    record EntregarBulto{
+        MetadataEvento metadata;
+        string tipoDeEntrega;
+        union { null, string } motivo=null;
+        union { null, string } submotivo=null;
+    }
+    record RechazoDeEntregaBulto{
+        MetadataEvento metadata;
+        string tipoDeEntrega;
+        union { null, string } motivo=null;
+        union { null, string } submotivo=null;
+    }
+}

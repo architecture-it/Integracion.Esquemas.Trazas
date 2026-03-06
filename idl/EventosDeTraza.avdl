@@ -2,6 +2,7 @@
 protocol EsquemasProtocol {
   import idl "DatosDeReferencia.avdl";
   import idl "BultoEventosDeTraza.avdl";
+  import idl "Acciones.avdl";
   import idl "ContenedorEventosDeTraza.avdl";
 
   @namespace("Integracion.Esquemas")
