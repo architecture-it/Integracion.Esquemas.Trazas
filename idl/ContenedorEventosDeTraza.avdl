@@ -24,10 +24,12 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
     Integracion.Esquemas.Referencias.DatosSucursal origen;
     Integracion.Esquemas.Referencias.DatosSucursal destino;
+    union { null, string } tipoAccion=null;
     union { null, array<Integracion.Esquemas.Referencias.DatosSucursal> } destinos=null;
     union { null, array<Integracion.Esquemas.Contenedor.Referencias.Bulto> } bultos=null;
     union { null, array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
     union { null, array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.ElementoModificado> } elementosModificados=null;
   }
   record ContenedorExpedido{
     Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
