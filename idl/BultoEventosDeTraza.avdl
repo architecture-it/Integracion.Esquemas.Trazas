@@ -98,6 +98,9 @@ protocol EsquemasProtocol {
   record BultoRoturaTotal{
     Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
+  record BultoLectura{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
+  }
   record BultoTrazabilidadFarmaConDiscrepancia{
     Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;
   }
@@ -243,6 +246,13 @@ protocol EsquemasProtocol {
   }
 
   record BultoRecepcionEnSucursalDestino{
+    Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+  }
+
+  record BultoRecepcionEnSucursal{
     Integracion.Esquemas.Bulto.Referencias.TrazaDeBulto traza;  
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;
     union { null, string } motivo=null;

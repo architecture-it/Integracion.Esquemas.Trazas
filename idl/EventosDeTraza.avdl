@@ -820,7 +820,9 @@ protocol EsquemasProtocol {
     union { null, Integracion.Esquemas.Referencias.DatosDistribuidor } distribuidor=null;
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } desdeDonde=null;
   }
-
+  record Lectura{
+    Integracion.Esquemas.Traza traza;  
+  }
   record ExcesoDeCantidad{
     Integracion.Esquemas.Traza traza;    
   }
@@ -943,6 +945,13 @@ protocol EsquemasProtocol {
   }
 
   record RecepcionEnSucursalDestino{
+    Integracion.Esquemas.Traza traza;  
+    union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;
+    union { null, string } motivo=null;
+    union { null, string } submotivo=null;
+  }
+  
+  record RecepcionEnSucursal{
     Integracion.Esquemas.Traza traza;  
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalDeRecepcion=null;
     union { null, string } motivo=null;
