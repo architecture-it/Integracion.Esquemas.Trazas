@@ -33,6 +33,9 @@ protocol DatoDeReferenciaProtocol {
   record Contenedor {
     string numero;
   }
+  record ReferenciaExterna {
+    string referencia;
+  }
   record Documento {
     string numeroDeReferencia;
   }
