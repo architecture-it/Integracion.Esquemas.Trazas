@@ -27,6 +27,14 @@ protocol DatoDeReferenciaProtocol {
     string id;    
   }
 
+  record DatosCustodia{
+    string codigoZona;
+    string codigoPosicion;
+    union { null, string } nombrePosicion=null;
+    union { null, string } vencimiento=null;
+    timestamp_ms cuando;
+  }
+
   record DetalleDeEnvio{
     union { null, string }fechaDeRecibo=null;
     boolean informaTarifa;

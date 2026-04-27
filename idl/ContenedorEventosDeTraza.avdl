@@ -34,6 +34,17 @@ protocol EsquemasProtocol {
     union { null, array<Integracion.Esquemas.Contenedor.Referencias.ReferenciaExterna> } referenciasExternas=null;
     union { null, array<Integracion.Esquemas.Contenedor.Referencias.ElementoModificado> } elementosModificados=null;
   }
+  record ContenedorAlmacenado{
+    Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
+    Integracion.Esquemas.Referencias.DatosCustodia zona;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Bulto> } bultos=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.ReferenciaExterna> } referenciasExternas=null;
+  }
+  record ContenedorFinDeCustodia{
+    Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
+  }
   record ContenedorExpedido{
     Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
     Integracion.Esquemas.Referencias.DatosSucursal origen;
