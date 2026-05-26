@@ -11,6 +11,7 @@ protocol EsquemasProtocol {
     union { null, array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
     union { null, array<Integracion.Esquemas.Contenedor.Referencias.Documento> } documentos=null;
     union { null, array<Integracion.Esquemas.Contenedor.Referencias.ReferenciaExterna> } referenciasExternas=null;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.ElementoModificado> } elementosModificados=null;
   }
   record ContenedorCerrado{
     Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;
