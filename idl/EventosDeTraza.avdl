@@ -49,18 +49,18 @@ protocol EsquemasProtocol {
     string submotivo;
   }
 
-  @namespace("Integracion.Esquemas.CartaDocumentoImpreso")
-  record EventoDeRespuesta{
+  @namespace("Integracion.Esquemas.CartasDocumentoImpreso")
+  record CartaDocumentoImpreso{
     Integracion.Esquemas.Traza traza;
   }
 
-  @namespace("Integracion.Esquemas.CartaDocumentoPendienteImpresion")
-  record EventoDeRespuesta{
+  @namespace("Integracion.Esquemas.CartasDocumentoPendienteImpresion")
+  record CartaDocumentoPendienteImpresion{
     Integracion.Esquemas.Traza traza;
   }
 
-  @namespace("Integracion.Esquemas.CartaDocumentoRechazo")
-  record EventoDeRespuesta{
+  @namespace("Integracion.Esquemas.CartasDocumentoRechazo")
+  record CartaDocumentoRechazo{
     Integracion.Esquemas.Traza traza;
     string motivo;
     string submotivo;
