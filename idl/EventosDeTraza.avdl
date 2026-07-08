@@ -49,6 +49,20 @@ protocol EsquemasProtocol {
     string submotivo;
   }
 
+  record CartaDocumentoImpreso{
+    Integracion.Esquemas.Traza traza;
+  }
+
+  record CartaDocumentoPendienteImpresion{
+    Integracion.Esquemas.Traza traza;
+  }
+
+  record CartaDocumentoRechazo{
+    Integracion.Esquemas.Traza traza;
+    string motivo;
+    string submotivo;
+  }
+
   record NovedadEnEnvio{
     Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
   }
