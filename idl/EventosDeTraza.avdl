@@ -49,6 +49,23 @@ protocol EsquemasProtocol {
     string submotivo;
   }
 
+  @namespace("Integracion.Esquemas.CartaDocumentoImpreso")
+  record EventoDeRespuesta{
+    Integracion.Esquemas.Traza traza;
+  }
+
+  @namespace("Integracion.Esquemas.CartaDocumentoPendienteImpresion")
+  record EventoDeRespuesta{
+    Integracion.Esquemas.Traza traza;
+  }
+
+  @namespace("Integracion.Esquemas.CartaDocumentoRechazo")
+  record EventoDeRespuesta{
+    Integracion.Esquemas.Traza traza;
+    string motivo;
+    string submotivo;
+  }
+
   record NovedadEnEnvio{
     Integracion.Esquemas.Referencias.DetalleDeEnvio envio;
   }
