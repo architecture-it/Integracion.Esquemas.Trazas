@@ -1,0 +1,41 @@
+@namespace("Integracion.Esquemas.Normalizador.Traza")
+protocol NormalizarDireccionProtocol {
+
+  record NormalizedAddressSucursalMessage {
+    union { null, int } idgla = null;
+    union { null, int } idsucursal = null;
+    union { null, string } codigo = null;
+    union { null, int, long, double, string } zona = null;
+  }
+
+  record NormalizedAddressSucursalDmsMessage {
+    union { null, int } numberCode = null;
+    union { null, int, long, double, string } zona = null;
+  }
+
+  record NormalizedAddressHexagonosMessage {
+    union { null, string } resolucion_7 = null;
+    union { null, string } resolucion_8 = null;
+    union { null, string } resolucion_9 = null;
+    union { null, string } resolucion_11 = null;
+  }
+
+  record NormalizedAddressKafkaMessage {
+    int id_mensaje;
+    union { null, string } mensaje = null;
+    union { null, string } provincia = null;
+    union { null, string } localidad = null;
+    union { null, string } cp = null;
+    union { null, string } calle = null;
+    union { null, string } nro = null;
+    double scoring_geo;
+    union { null, string } latitud = null;
+    union { null, string } longitud = null;
+    union { null, string } mensaje_geolocalizacion = null;
+    union { null, NormalizedAddressSucursalMessage } sucursal = null;
+    union { null, NormalizedAddressSucursalDmsMessage } sucursal_dms = null;
+    boolean flag_recanalizacion;
+    boolean grandes_superficies;
+    union { null, NormalizedAddressHexagonosMessage } hexagonos = null;
+  }
+}
