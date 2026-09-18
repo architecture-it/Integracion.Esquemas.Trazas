@@ -52,6 +52,7 @@ protocol EsquemasProtocol {
     Integracion.Esquemas.Referencias.DatosSucursal origen;
     Integracion.Esquemas.Referencias.DatosSucursal destino;
     Integracion.Esquemas.Contenedor.Referencias.Viaje viaje;
+    union { null, array<Integracion.Esquemas.Contenedor.Referencias.Contenedor> } contenedores=null;
   }
   record ContenedorRecepcionado{
     Integracion.Esquemas.Contenedor.Referencias.TrazaContendor traza;

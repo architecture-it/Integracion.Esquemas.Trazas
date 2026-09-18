@@ -3,14 +3,14 @@ protocol DatoDeReferenciaProtocol {
   import idl "DatosDeReferencia.avdl";
   record TrazaContendor{
     string numero;
-    string tipo;
+    string tipo; // deprecado
     string ciclo;
     string estado;
     timestamp_ms cuando;
     union { null, string } operador=null;
     union { null, string } comentario=null; 
     union { null, string } prefijo=null;
-    union { null, string } tipoIntegra=null;
+    union { null, TipoContenedor } tipoContenedor=null;
     union { null, Integracion.Esquemas.Referencias.DatosSucursal } sucursalAsociadaAlEvento=null;
   }
 
@@ -30,9 +30,17 @@ protocol DatoDeReferenciaProtocol {
 
   record Viaje {
     string codigo;
+    union { null, string } choferDni=null;
+    union { null, string } patenteVehiculo=null;
   }
   record Contenedor {
     string numero;
+    union { null, TipoContenedor } tipoContenedor=null;
+    union { null, boolean } esMixto=null;
+  }
+  record TipoContenedor {
+    string nombre;
+    map<int> referenciasExternas;
   }
   record ReferenciaExterna {
     string referencia;
