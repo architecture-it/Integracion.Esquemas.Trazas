@@ -1155,6 +1155,8 @@ protocol EsquemasProtocol {
     double anchoEnCm;
     string fechaProcesamiento;
     string keyBulto;
+    union { null, array<string> } imagenes=null;
+    union { null, array<string> } urls=null;
     union { null, int } jerarquia;
   }
 
