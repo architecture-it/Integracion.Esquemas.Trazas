@@ -1157,7 +1157,7 @@ protocol EsquemasProtocol {
     string keyBulto;
     union { null, array<string> } imagenes=null;
     union { null, array<string> } urls=null;
-    union { null, int } jerarquia;
+    union { null, int } jerarquia=null;
   }
 
   record LlegadaUnidadDeTransporte{
