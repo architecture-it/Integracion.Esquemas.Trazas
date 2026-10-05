@@ -1155,6 +1155,7 @@ protocol EsquemasProtocol {
     double anchoEnCm;
     string fechaProcesamiento;
     string keyBulto;
+    union { null, int } jerarquia;
   }
 
   record LlegadaUnidadDeTransporte{
