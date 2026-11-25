@@ -663,6 +663,10 @@ protocol EsquemasProtocol {
     union { null, string } nuevoNumeroDeEnvio;
   }
 
+  record PendienteGeneracionRetiro{
+    Integracion.Esquemas.Traza traza;
+  }
+
   record RemitoDigitalizado{
     Integracion.Esquemas.Traza traza;
     union { null, string } urlDocumento;
